@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/KotlinSimbirsoft/MyApplication/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2985" />
+        <entry key="..\:/KotlinSimbirsoft/MyApplication/app/src/main/res/drawable/ic_baseline_edit_24.xml" value="0.196" />
+        <entry key="..\:/KotlinSimbirsoft/MyApplication/app/src/main/res/drawable/ic_help.xml" value="0.2985" />
+        <entry key="..\:/KotlinSimbirsoft/MyApplication/app/src/main/res/drawable/ic_icon_logo.xml" value="0.2985" />
+        <entry key="..\:/KotlinSimbirsoft/MyApplication/app/src/main/res/drawable/ic_image_man_background.xml" value="0.196" />
+        <entry key="..\:/KotlinSimbirsoft/MyApplication/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2985" />
+        <entry key="..\:/KotlinSimbirsoft/MyApplication/app/src/main/res/drawable/ic_logo_mss.xml" value="0.2985" />
+        <entry key="..\:/KotlinSimbirsoft/MyApplication/app/src/main/res/drawable/ic_search.xml" value="0.2985" />
+        <entry key="..\:/KotlinSimbirsoft/MyApplication/app/src/main/res/font/officinasans.xml" value="0.2171875" />
+        <entry key="..\:/KotlinSimbirsoft/MyApplication/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/KotlinSimbirsoft/MyApplication/app/src/main/res/layout/activity_profile.xml" value="0.5" />
+        <entry key="..\:/KotlinSimbirsoft/MyApplication/app/src/main/res/layout/activity_splash_screen.xml" value="0.36666666666666664" />
+        <entry key="..\:/KotlinSimbirsoft/MyApplication/app/src/main/res/layout/roundcorner.xml" value="0.18802083333333333" />
+        <entry key="..\:/KotlinSimbirsoft/MyApplication/app/src/main/res/menu/bottom_menu.xml" value="0.36666666666666664" />
+        <entry key="..\:/KotlinSimbirsoft/MyApplication/app/src/main/res/mipmap-anydpi-v26/ic_image_man.xml" value="0.196" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
