@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.databinding.ActivityProfileBinding
@@ -12,5 +13,8 @@ class Profile : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(bindingClass.root)
         bindingClass.bottomMenu.selectedItemId = R.id.profile
+        bindingClass.editButton.setOnClickListener {
+            startActivity(Intent(this, EditProfileActivity()::class.java))
+        }
     }
 }

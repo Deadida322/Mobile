@@ -9,4 +9,9 @@
     <color name="white">#FFFFFFFF</color>
     <color name="pale_grey">#EFF3F6</color>
     <color name="turtle_green">#7db354</color>
+    <color name="light_grey">#eaede8</color>
+    <color name="light_grey_two">#e8eded</color>
+    <color name="light_olive_green">#9ebf50</color>
+    <color name="macaroni_and_cheese">#f2b630</color>
+    <color name="black__54">#8a000000</color>
 </resources>
