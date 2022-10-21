@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 
-class SearchAdapter(fragment: FragmentActivity) : FragmentStateAdapter(fragment) {
+class SearchAdapter(fragment: SearchScreen) : FragmentStateAdapter(fragment) {
     override fun getItemCount() = 2
 
     private fun getRandomString(length: Int): String {
