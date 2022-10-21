@@ -6,8 +6,10 @@ import android.graphics.Bitmap
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
+import android.view.LayoutInflater
 import android.view.View
 import android.widget.PopupMenu
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.databinding.ActivityEditProfileBinding
 
@@ -15,29 +17,19 @@ class EditProfileActivity : AppCompatActivity() {
     lateinit var bindingClass: ActivityEditProfileBinding
     private val REQUEST_TAKE_PHOTO = 1
 
-    private fun showPopup(it: View) {
-        val popupMenu = PopupMenu(this, it)
-        popupMenu.setOnMenuItemClickListener { item ->
-            when (item.itemId) {
-                R.id.upload -> {
-                    true
-                }
-                R.id.take_foto -> {
-                    takePhoto()
-                    true
-                }
-                R.id.delete -> {
-                    deletePhoto()
-                    true
-                }
-                else -> true
-            }
+    private fun showDialog(it: View) {
+        val mDialogView = LayoutInflater.from(this).inflate(R.layout.image_menu, null)
+        val mBuilder = AlertDialog.Builder(this)
+            .setView(mDialogView)
+        val mAlertDialog = mBuilder.show()
+        mDialogView.findViewById<View>(R.id.menuTakePhoto).setOnClickListener {
+            takePhoto()
+            mAlertDialog.dismiss()
         }
-        popupMenu.inflate(R.menu.profile_menu)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            popupMenu.setForceShowIcon(true)
+        mDialogView.findViewById<View>(R.id.menuDelte).setOnClickListener {
+            deletePhoto()
+            mAlertDialog.dismiss()
         }
-        popupMenu.show()
     }
 
     private fun takePhoto() {
@@ -57,9 +49,8 @@ class EditProfileActivity : AppCompatActivity() {
         bindingClass = ActivityEditProfileBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(bindingClass.root)
-
         bindingClass.changeImage.setOnClickListener {
-            showPopup(it)
+            showDialog(it)
         }
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

@@ -11,10 +11,27 @@ class Profile : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         bindingClass = ActivityProfileBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
-        setContentView(bindingClass.root)
         bindingClass.bottomMenu.selectedItemId = R.id.profile
+        bindingClass.bottomMenu.setOnItemReselectedListener {
+            when (it.itemId) {
+                R.id.profile -> {
+                    val intent = Intent(this, Profile::class.java)
+                    startActivity(intent)
+                }
+                R.id.help -> {
+                    val intent = Intent(this, HelpCategory::class.java)
+                    startActivity(intent)
+                }
+                R.id.search -> {
+                    val intent = Intent(this, Search::class.java)
+                    startActivity(intent)
+                }
+                else -> false
+            }
+        }
         bindingClass.editButton.setOnClickListener {
             startActivity(Intent(this, EditProfileActivity()::class.java))
         }
+        setContentView(bindingClass.root)
     }
 }
