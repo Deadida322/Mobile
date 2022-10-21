@@ -65,23 +65,7 @@
                 android:background="@color/turtle_green"
                 app:tabGravity="fill"
                 app:tabIndicatorColor="@color/macaroni_and_cheese"
-                app:tabTextColor="@color/white">
-
-                <com.google.android.material.tabs.TabItem
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Monday" />
-
-                <com.google.android.material.tabs.TabItem
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Tuesday" />
-
-                <com.google.android.material.tabs.TabItem
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Wednesday" />
-            </com.google.android.material.tabs.TabLayout>
+                app:tabTextColor="@color/white"/>
         </LinearLayout>
 
     </com.google.android.material.appbar.AppBarLayout>

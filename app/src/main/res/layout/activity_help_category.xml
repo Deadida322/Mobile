@@ -1,46 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent">
-
-<com.google.android.material.appbar.AppBarLayout
-    android:id="@+id/appbar"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent">
 
-    <Toolbar
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:contentInsetStart="0dp"
-        android:contentInsetLeft="0dp"
-        app:layout_scrollFlags="scroll|enterAlways">
+        android:layout_height="wrap_content">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <Toolbar
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:context=".Profile">
+            android:layout_height="?attr/actionBarSize"
+            android:contentInsetStart="0dp"
+            android:contentInsetLeft="0dp"
+            app:layout_scrollFlags="scroll|enterAlways">
 
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/officinasans"
-                android:text="Помочь"
-                android:textColor="@color/white"
-                android:textFontWeight="600"
-                android:textSize="21sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_scrollFlags="scroll|enterAlways" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".Profile">
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </Toolbar>
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/officinasans"
+                    android:text="Помочь"
+                    android:textColor="@color/white"
+                    android:textFontWeight="600"
+                    android:textSize="21sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_scrollFlags="scroll|enterAlways" />
 
-</com.google.android.material.appbar.AppBarLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -80,14 +80,14 @@ android:layout_height="match_parent">
     </androidx.core.widget.NestedScrollView>
 
 
-<com.google.android.material.bottomnavigation.BottomNavigationView
-    android:id="@+id/bottom_menu"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_gravity="bottom"
-    android:background="@color/white"
-    app:layout_constraintBottom_toTopOf="@+id/appbar"
-    app:menu="@menu/bottom_menu"
-    tools:layout_editor_absoluteX="-4dp" />
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/appbar"
+        app:menu="@menu/bottom_menu"
+        tools:layout_editor_absoluteX="-4dp" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

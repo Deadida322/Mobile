@@ -5,13 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.databinding.FragmentEventSearchBinding
 import com.example.todoapp.SearchItemAdapter
 
-const val ARG_PARAM = "param2"
+const val ARG_PARAM = ""
 
 class EventSearchFragment : Fragment() {
     lateinit var binding: FragmentEventSearchBinding
