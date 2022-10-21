@@ -5,13 +5,7 @@ a
 1app/src/main/res/drawable/ic_baseline_edit_24.xml,2\7\2701889fa172b91c3b1e269de92b0b4e7e83564b
 ?
 settings.gradle,0\5\05efc8b1657769a27696d478ded1e95f38737233
-@
-app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
-<
-build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
 k
 ;app/src/main/java/com/example/myapplication/MainActivity.kt,0\0\00ed33bb9fa3f2577abe71150520b83c93b6af18
 P
  app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
-k
-;app/src/main/java/com/example/myapplication/HelpFragment.kt,3\f\3f0210ba4b67097bbcea10bf64c60ae887d38a5f

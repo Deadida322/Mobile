@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.databinding.FragmentHelpBinding
 import com.example.todoapp.HelpAdapter
+import com.google.android.flexbox.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -47,7 +48,13 @@ class HelpFragment : Fragment() {
             )
         )
         recyclerView.adapter = adapter
-        recyclerView.layoutManager = GridLayoutManager(activity, 2)
+        val layoutManager = FlexboxLayoutManager(context).apply {
+            justifyContent = JustifyContent.SPACE_BETWEEN
+            alignItems = AlignItems.CENTER
+            flexDirection = FlexDirection.ROW
+            flexWrap = FlexWrap.WRAP
+        }
+        recyclerView.layoutManager = layoutManager
         adapter.setInfo(list)
         return binding.root
     }
