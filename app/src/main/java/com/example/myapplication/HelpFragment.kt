@@ -53,9 +53,7 @@ class HelpFragment : Fragment() {
         recyclerView = binding.RecyclerViewFragment
         adapter = HelpAdapter(requireContext())
 
-        val jsonString: String = getJsonDataFromAsset(requireContext(), "categories.json")
-        println(jsonString)
-        list = getList(jsonString, HelpItem::class.java)
+        list = JSONReader(requireContext(), "categories.json", HelpItem::class.java).getList()
         Log.i(
             "yebat",
             list.toString()
