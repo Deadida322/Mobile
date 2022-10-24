@@ -3,21 +3,21 @@ package com.example.myapplication
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.graphics.Bitmap
-import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.PopupMenu
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.databinding.ActivityEditProfileBinding
+import java.io.IOException
 
 class EditProfileActivity : AppCompatActivity() {
     lateinit var bindingClass: ActivityEditProfileBinding
     private val REQUEST_TAKE_PHOTO = 1
+    private val SELECT_IMAGE_CODE = 2
 
-    private fun showDialog(it: View) {
+    private fun showDialog() {
         val mDialogView = LayoutInflater.from(this).inflate(R.layout.image_menu, null)
         val mBuilder = AlertDialog.Builder(this)
             .setView(mDialogView)
@@ -28,6 +28,10 @@ class EditProfileActivity : AppCompatActivity() {
         }
         mDialogView.findViewById<View>(R.id.menuDelte).setOnClickListener {
             deletePhoto()
+            mAlertDialog.dismiss()
+        }
+        mDialogView.findViewById<View>(R.id.menuUpload).setOnClickListener {
+            uploadPhoto()
             mAlertDialog.dismiss()
         }
     }
@@ -41,6 +45,13 @@ class EditProfileActivity : AppCompatActivity() {
         }
     }
 
+    private fun uploadPhoto() {
+        val intent = Intent()
+        intent.type = "image/*"
+        intent.action = Intent.ACTION_GET_CONTENT
+        startActivityForResult(Intent.createChooser(intent, "Select image..."), SELECT_IMAGE_CODE)
+    }
+
     private fun deletePhoto() {
         bindingClass.imageProfile.setImageResource(R.drawable.ic_user_profile_icon)
     }
@@ -49,8 +60,12 @@ class EditProfileActivity : AppCompatActivity() {
         bindingClass = ActivityEditProfileBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(bindingClass.root)
+    }
+
+    override fun onStart() {
+        super.onStart()
         bindingClass.changeImage.setOnClickListener {
-            showDialog(it)
+            showDialog()
         }
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -59,6 +74,16 @@ class EditProfileActivity : AppCompatActivity() {
         if (requestCode == REQUEST_TAKE_PHOTO && resultCode == RESULT_OK) {
             val thumbnailBitmap = data?.extras?.get("data") as Bitmap
             bindingClass.imageProfile.setImageBitmap(thumbnailBitmap)
+        }
+        if (requestCode == SELECT_IMAGE_CODE && resultCode == RESULT_OK) {
+            if (data != null) {
+                try {
+                    val bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, data.data)
+                    bindingClass.imageProfile!!.setImageBitmap(bitmap)
+                } catch (e: IOException) {
+                    e.printStackTrace()
+                }
+            }
         }
     }
 }

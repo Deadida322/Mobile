@@ -21,6 +21,10 @@ class MainActivity : AppCompatActivity() {
         binding.bottomMenu.selectedItemId = R.id.help
         binding.bottomMenu.setOnItemSelectedListener { it ->
             when (it.itemId) {
+                R.id.news -> {
+                    loadFragment(NewsDetail())
+                    return@setOnItemSelectedListener true
+                }
                 R.id.profile -> {
                     loadFragment(ProfileScreen())
                     return@setOnItemSelectedListener true

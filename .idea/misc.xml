@@ -10,6 +10,8 @@
         <entry key="..\:/KotlinSimbirsoft/MyApplication/app/src/main/res/drawable/ic_baseline_done_24.xml" value="0.256" />
         <entry key="..\:/KotlinSimbirsoft/MyApplication/app/src/main/res/drawable/ic_baseline_edit_24.xml" value="0.196" />
         <entry key="..\:/KotlinSimbirsoft/MyApplication/app/src/main/res/drawable/ic_help.xml" value="0.2985" />
+        <entry key="..\:/KotlinSimbirsoft/MyApplication/app/src/main/res/drawable/ic_icon_calendar.xml" value="0.196" />
+        <entry key="..\:/KotlinSimbirsoft/MyApplication/app/src/main/res/drawable/ic_icon_calendar_white.xml" value="0.196" />
         <entry key="..\:/KotlinSimbirsoft/MyApplication/app/src/main/res/drawable/ic_icon_logo.xml" value="0.2985" />
         <entry key="..\:/KotlinSimbirsoft/MyApplication/app/src/main/res/drawable/ic_image_man_background.xml" value="0.196" />
         <entry key="..\:/KotlinSimbirsoft/MyApplication/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2985" />
@@ -28,10 +30,15 @@
         <entry key="..\:/KotlinSimbirsoft/MyApplication/app/src/main/res/layout/fragment_help.xml" value="0.33" />
         <entry key="..\:/KotlinSimbirsoft/MyApplication/app/src/main/res/layout/fragment_help_screen.xml" value="0.20260416666666667" />
         <entry key="..\:/KotlinSimbirsoft/MyApplication/app/src/main/res/layout/fragment_item_list.xml" value="0.33" />
+        <entry key="..\:/KotlinSimbirsoft/MyApplication/app/src/main/res/layout/fragment_news_detail.xml" value="0.4652061855670103" />
+        <entry key="..\:/KotlinSimbirsoft/MyApplication/app/src/main/res/layout/fragment_news_filter.xml" value="0.5" />
+        <entry key="..\:/KotlinSimbirsoft/MyApplication/app/src/main/res/layout/fragment_news_screen.xml" value="0.18802083333333333" />
         <entry key="..\:/KotlinSimbirsoft/MyApplication/app/src/main/res/layout/fragment_profile_screen.xml" value="0.20260416666666667" />
+        <entry key="..\:/KotlinSimbirsoft/MyApplication/app/src/main/res/layout/fragment_search_screen.xml" value="0.18802083333333333" />
         <entry key="..\:/KotlinSimbirsoft/MyApplication/app/src/main/res/layout/help_item.xml" value="0.18802083333333333" />
         <entry key="..\:/KotlinSimbirsoft/MyApplication/app/src/main/res/layout/help_screen.xml" value="0.5" />
         <entry key="..\:/KotlinSimbirsoft/MyApplication/app/src/main/res/layout/image_menu.xml" value="0.9" />
+        <entry key="..\:/KotlinSimbirsoft/MyApplication/app/src/main/res/layout/news_item.xml" value="0.33" />
         <entry key="..\:/KotlinSimbirsoft/MyApplication/app/src/main/res/layout/roundcorner.xml" value="0.18802083333333333" />
         <entry key="..\:/KotlinSimbirsoft/MyApplication/app/src/main/res/layout/rounded_corners.xml" value="0.18958333333333333" />
         <entry key="..\:/KotlinSimbirsoft/MyApplication/app/src/main/res/layout/search_item.xml" value="0.33" />
