@@ -1,0 +1,49 @@
+[
+  {
+    "id": 0,
+    "title": "Ехал грека",
+    "address": "Санкт Петербург, Кировская улица, 3",
+    "phoneList": ["89041935582", "88005553555"],
+    "email": "1davidios1@gmail.com",
+    "gallery":  [
+      "@drawable/gallery1.png",
+      "@drawable/gallery2.png",
+      "@drawable/gallery3.png"
+    ],
+    "description": " Добро по указу — не добро. Волки - это сухопутные акулы. Женщина — это неудавшийся мужчина. Деньги, как и молодость, не знают преград. Кто боится порки, тот все равно что выпорот.",
+    "categories": ["childs", "elders"],
+    "started_at": 12302391238,
+    "contributors": [
+      "@drawable/gallery1.png",
+      "@drawable/gallery2.png",
+      "@drawable/gallery3.png",
+      "@drawable/profile_image1.png",
+      "@drawable/profile_image1.png",
+      "@drawable/profile_image2.png",
+      "@drawable/gallery3.png",
+      "@drawable/profile_image3.png"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Через реку",
+    "address": "Ульяновск, Северный венец, 6",
+    "phoneList": ["89041935582", "88005553555"],
+    "email": "1davidios1@gmail.com",
+    "gallery":  [
+      "@drawable/gallery1.png",
+      "@drawable/gallery2.png",
+      "@drawable/gallery3.png"
+    ],
+    "description": "Добро по указу — не добро. Волки - это сухопутные акулы. Женщина — это неудавшийся мужчина. Деньги, как и молодость, не знают преград. Кто боится порки, тот все равно что выпорот.",
+    "categories": ["childs"],
+    "started_at": 189302391238,
+    "contributors": [
+      "@drawable/profile_image1.png",
+      "@drawable/profile_image1.png",
+      "@drawable/profile_image2.png",
+      "@drawable/gallery3.png",
+      "@drawable/profile_image3.png"
+    ]
+  }
+]

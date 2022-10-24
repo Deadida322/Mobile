@@ -1,6 +1,8 @@
 package com.example.todoapp
 
 import android.annotation.SuppressLint
+import android.content.Context
+import android.content.res.Resources
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +13,7 @@ import com.example.myapplication.HelpItem
 import com.example.myapplication.R
 
 /** Класс адаптера для RecyclerView */
-class HelpAdapter() : RecyclerView.Adapter<HelpAdapter.ViewHolder>() {
+class HelpAdapter(val context: Context) : RecyclerView.Adapter<HelpAdapter.ViewHolder>() {
 
     private val todolist = mutableListOf<HelpItem>()
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -24,9 +26,13 @@ class HelpAdapter() : RecyclerView.Adapter<HelpAdapter.ViewHolder>() {
         return ViewHolder(itemView)
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     override fun onBindViewHolder(holder: HelpAdapter.ViewHolder, position: Int) {
         val tmpItem = todolist[position]
-        holder.img.setImageResource(tmpItem.img)
+        val id: Int = context.getResources().getIdentifier(tmpItem.img, "drawable", context.packageName)
+        val img = context.getResources().getDrawable(id, context.getApplicationContext().getTheme())
+
+        holder.img.background = img
         holder.text.text = tmpItem.txt
     }
 
