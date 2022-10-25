@@ -24,9 +24,6 @@ class HelpFragment : Fragment() {
     lateinit var adapter: HelpAdapter
     lateinit var recyclerView: RecyclerView
     lateinit var list: ArrayList<HelpItem>
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     fun <T> getList(jsonArray: String?, clazz: Class<T>?): ArrayList<HelpItem> {
         val typeOfT: Type? = TypeToken.getParameterized(MutableList::class.java, clazz).type
@@ -48,7 +45,7 @@ class HelpFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentHelpBinding.inflate(inflater)
         recyclerView = binding.RecyclerViewFragment
         adapter = HelpAdapter(requireContext())
@@ -68,9 +65,5 @@ class HelpFragment : Fragment() {
         recyclerView.layoutManager = layoutManager
         adapter.setInfo(list)
         return binding.root
-    }
-    companion object {
-        @JvmStatic
-        fun newInstance() = HelpFragment()
     }
 }

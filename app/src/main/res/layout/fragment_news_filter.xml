@@ -94,17 +94,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.fragment.app.FragmentContainerView
-                android:id="@+id/fragmentContainerView3"
-                android:name="com.example.myapplication.HelpFragment"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView7"
-                tools:layout="@layout/fragment_help" />
-
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline5"
                 android:layout_width="wrap_content"
@@ -116,22 +105,23 @@
                 android:id="@+id/SwitchBackGround"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_marginTop="-20dp"
                 android:background="@color/white"
                 app:layout_constraintBottom_toBottomOf="@+id/divider7"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fragmentContainerView3" />
+                app:layout_constraintTop_toTopOf="@+id/textView16" />
 
             <TextView
                 android:id="@+id/textView16"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="17dp"
+                android:layout_marginTop="30dp"
                 android:text="Деньгами"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="@+id/guideline5"
-                app:layout_constraintTop_toBottomOf="@+id/fragmentContainerView3" />
+                app:layout_constraintTop_toBottomOf="@+id/filterCategoriesRecycler" />
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/switch1"
@@ -257,6 +247,15 @@
                 app:layout_constraintBottom_toBottomOf="@+id/textView19"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/textView19" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/filterCategoriesRecycler"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView7" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>

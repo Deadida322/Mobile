@@ -1,6 +1,7 @@
 package com.example.myapplication
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,12 +17,22 @@ class NewsScreen : Fragment() {
     lateinit var adapter: NewsAdapter
     lateinit var recyclerView: RecyclerView
     lateinit var list: ArrayList<NewsItem>
+    private var sortCategory: String = ""
+
     private fun loadFragment(fragment: Fragment) {
         val fragmentManager = activity?.supportFragmentManager
         val fragmantTransaction = fragmentManager?.beginTransaction()
         fragmantTransaction?.add(R.id.fragmentContainer, fragment)
         fragmantTransaction?.commit()
     }
+    private fun filterNews(): ArrayList<NewsItem> {
+        Log.e("infoNews", sortCategory.toString())
+        if (sortCategory == "") return list
+        return list.filter {
+            it.categories.contains(sortCategory)
+        } as ArrayList
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -33,17 +44,14 @@ class NewsScreen : Fragment() {
     ): View? {
         binding = FragmentNewsScreenBinding.inflate(inflater)
         recyclerView = binding.newsRecycler
-        adapter = NewsAdapter()
-        list = ArrayList(
-            listOf(
-                NewsItem(1, R.drawable.childs, 1092030302, "Здравствуй осень в сапогах", "Здравствуй небо в облаках")
-            )
-        )
+        adapter = NewsAdapter(requireContext())
+        list = JSONReader(requireContext(), "news.json", NewsItem::class.java).getList() as ArrayList<NewsItem>
+        sortCategory = getArguments()?.getString("key", "").toString()
+        adapter.differ.submitList(filterNews())
         recyclerView.adapter = adapter
         val layoutManager = LinearLayoutManager(context)
         recyclerView.layoutManager = layoutManager
-        adapter.setInfo(list)
-        binding.filterButton.setOnClickListener{
+        binding.filterButton.setOnClickListener {
             loadFragment(NewsFilter())
         }
         return binding.root

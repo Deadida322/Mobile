@@ -8,23 +8,7 @@ a
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
-r
-Bapp/src/main/java/com/example/myapplication/EventSearchFragment.kt,9\c\9cd342662aafdbf3bc558dfe436aa39c3c6c48aa
-p
-@app/src/main/java/com/example/myapplication/SearchItemAdapter.kt,c\2\c273c33f7ab718a3ed957494c07bca354bd4544e
-k
-;app/src/main/java/com/example/myapplication/SplashScreen.kt,6\4\644206f5a990da7511e55e60da6e3b9c5e188c61
 P
  app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
-g
-7app/src/main/java/com/example/myapplication/NewsItem.kt,c\4\c400d2c844bf9cc36311a423e71a3211edefb495
-i
-9app/src/main/java/com/example/myapplication/HelpScreen.kt,c\4\c4df59b464033abbb9139afb04d38c630df11bba
-j
-:app/src/main/java/com/example/myapplication/NewsAdapter.kt,0\c\0c9039f8283e8a77d271c7b419c528b3cbc192e6
-l
-<app/src/main/java/com/example/myapplication/SearchAdapter.kt,4\c\4c217d49966c3196b78ee7679fe56bbdf079c176
-k
-;app/src/main/java/com/example/myapplication/SearchScreen.kt,d\9\d93413fbd548cca205c34c298937653bf52df6c9
-l
-<app/src/main/java/com/example/myapplication/ProfileScreen.kt,d\2\d28d0b595a1b05c3d4fb26ec44ff013dd8ebb6e7
+<
+build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35

@@ -1,44 +1,59 @@
 package com.example.todoapp
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.recyclerview.widget.AsyncListDiffer
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.NewsItem
-import com.example.myapplication.R
+import com.example.myapplication.databinding.NewsItemBinding
 
-class NewsAdapter() : RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
-
+class NewsAdapter(val context: Context) : RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
+    lateinit var binding: NewsItemBinding
     private val news = mutableListOf<NewsItem>()
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val img: ImageView = itemView.findViewById(R.id.newsImage)
-        val title: TextView = itemView.findViewById(R.id.newsTitle)
-        val description: TextView = itemView.findViewById(R.id.newsDescription)
-        val date: TextView = itemView.findViewById(R.id.newsDate)
+    inner class ViewHolder() : RecyclerView.ViewHolder(binding.root) {
+        val img: ImageView = binding.newsImage
+        val title: TextView = binding.newsTitle
+        val description: TextView = binding.newsDescription
+        val date: TextView = binding.newsDate
+
+        @SuppressLint("UseCompatLoadingForDrawables")
+        fun setData(item: NewsItem) {
+            val id: Int = context.getResources().getIdentifier(item.img, "drawable", context.packageName)
+            val img = context.getResources().getDrawable(id, context.getApplicationContext().getTheme())
+            binding.apply {
+                newsImage.background = img
+                newsTitle.text = item.title
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsAdapter.ViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.news_item, parent, false)
-        return ViewHolder(itemView)
+        binding = NewsItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ViewHolder()
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     override fun onBindViewHolder(holder: NewsAdapter.ViewHolder, position: Int) {
-        val tmpItem = news[position]
-        holder.img.setImageResource(tmpItem.img)
-        holder.title.text = tmpItem.title
+        holder.setData(differ.currentList[position])
+        holder.setIsRecyclable(false)
     }
 
-    override fun getItemCount(): Int {
-        return news.size
-    }
+    override fun getItemCount() = differ.currentList.size
 
-    @SuppressLint("NotifyDataSetChanged")
-    fun setInfo(tmpArr: ArrayList<NewsItem>) {
-        news.clear()
-        news.addAll(tmpArr)
-        notifyDataSetChanged()
+    private val differCallback = object : DiffUtil.ItemCallback<NewsItem>() {
+        override fun areItemsTheSame(oldItem: NewsItem, newItem: NewsItem): Boolean {
+            return oldItem.id == newItem.id
+        }
+
+        @SuppressLint("DiffUtilEquals")
+        override fun areContentsTheSame(oldItem: NewsItem, newItem: NewsItem): Boolean {
+            return oldItem == newItem
+        }
     }
+    val differ = AsyncListDiffer(this, differCallback)
 }

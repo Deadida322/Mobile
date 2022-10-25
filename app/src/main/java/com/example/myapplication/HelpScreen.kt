@@ -9,9 +9,6 @@ import com.example.myapplication.databinding.FragmentHelpScreenBinding
 
 class HelpScreen : Fragment() {
     lateinit var binding: FragmentHelpScreenBinding
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,

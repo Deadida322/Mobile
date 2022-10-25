@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import com.example.myapplication.databinding.ActivityEditProfileBinding
 import java.io.IOException
 
@@ -57,17 +58,15 @@ class EditProfileActivity : AppCompatActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        bindingClass = ActivityEditProfileBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
-        setContentView(bindingClass.root)
-    }
-
-    override fun onStart() {
-        super.onStart()
+        bindingClass = ActivityEditProfileBinding.inflate(layoutInflater)
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         bindingClass.changeImage.setOnClickListener {
             showDialog()
         }
+        setContentView(bindingClass.root)
     }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 

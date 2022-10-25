@@ -9,15 +9,12 @@ import com.example.myapplication.databinding.FragmentNewsDetailBinding
 
 class NewsDetail : Fragment() {
     lateinit var binding: FragmentNewsDetailBinding
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentNewsDetailBinding.inflate(inflater)
         return binding.root
     }

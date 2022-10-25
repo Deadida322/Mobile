@@ -1,10 +1,11 @@
 [
   {
     "id": 0,
-    "title": "Ехал грека",
+    "title": "Ехал грекаf",
     "address": "Санкт Петербург, Кировская улица, 3",
     "phoneList": ["89041935582", "88005553555"],
     "email": "1davidios1@gmail.com",
+    "img": "@drawable/gallery2",
     "gallery":  [
       "@drawable/gallery1.png",
       "@drawable/gallery2.png",
@@ -30,6 +31,7 @@
     "address": "Ульяновск, Северный венец, 6",
     "phoneList": ["89041935582", "88005553555"],
     "email": "1davidios1@gmail.com",
+    "img": "@drawable/gallery1",
     "gallery":  [
       "@drawable/gallery1.png",
       "@drawable/gallery2.png",

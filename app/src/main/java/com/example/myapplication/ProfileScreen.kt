@@ -10,15 +10,12 @@ import com.example.myapplication.databinding.FragmentProfileScreenBinding
 
 class ProfileScreen : Fragment() {
     lateinit var binding: FragmentProfileScreenBinding
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentProfileScreenBinding.inflate(layoutInflater)
         binding.editButton.setOnClickListener {
             startActivity(Intent(context, EditProfileActivity()::class.java))
