@@ -12,5 +12,3 @@ a
 app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
 <
 build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
-r
-Bapp/src/main/java/com/example/myapplication/EventSearchFragment.kt,9\c\9cd342662aafdbf3bc558dfe436aa39c3c6c48aa

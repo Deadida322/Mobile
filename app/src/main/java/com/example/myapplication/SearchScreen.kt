@@ -13,15 +13,12 @@ class SearchScreen : Fragment() {
     lateinit var binding: FragmentSearchScreenBinding
     lateinit var adapter: SearchAdapter
     lateinit var tabLayout: TabLayout
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentSearchScreenBinding.inflate(inflater)
         adapter = SearchAdapter(this)
         tabLayout = binding.tabLayout

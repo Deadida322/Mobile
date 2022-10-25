@@ -16,7 +16,7 @@ class SearchAdapter(fragment: SearchScreen) : FragmentStateAdapter(fragment) {
     }
 
     private fun getRandomList(length: Int): List<String> {
-        var list = mutableListOf<String>()
+        val list = mutableListOf<String>()
         for (i in 0..length) {
             list.add(getRandomString((8..200).random()))
         }
