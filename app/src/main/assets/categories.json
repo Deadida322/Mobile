@@ -11,17 +11,17 @@
   },
   {
     "img": "@drawable/elder",
-    "txt": "пожилые",
+    "txt": "Пожилые",
     "value": "elders"
   },
   {
     "img": "@drawable/animals",
-    "txt": "животные",
+    "txt": "Животные",
     "value": "animals"
   },
   {
     "img": "@drawable/events",
-    "txt": "события",
+    "txt": "События",
     "value": "events"
   }
 ]

@@ -3,4 +3,31 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="go_to_site"><u>Перейти на сайт организаии</u></string>
+    <string name="upload">Выбрать фото</string>
+    <string name="by_events">По мероприятию</string>
+    <string name="by_nko">По НКО</string>
+    <string name="edit">Редактировать</string>
+    <string name="password">Пароль</string>
+    <string name="fill_your_activity">Заполните Вашу сферу деятельности, чтобы быть наиболее полезным</string>
+    <string name="email_for_notifications">01 февраля 1980</string>
+    <string name="birthday">Дата рождения</string>
+    <string name="change_photo">Сменить \n фото</string>
+    <string name="your_name">Ваше имя</string>
+    <string name="your_surname">Ваша фамилия</string>
+    <string name="insert_surname">Введите фамилию</string>
+    <string name="e_mail">E-mail для уведомлений</string>
+    <string name="insert_name">Введите имя</string>
+    <string name="loading">Загрузка</string>
+    <string name="choose_category">Выберите категорию помощи</string>
+    <string name="help">Помочь</string>
+    <string name="filter">Фильтр</string>
+    <string name="by_money">Деньгами</string>
+    <string name="by_stuff">Вещами</string>
+    <string name="by_prof_help">Проф. помощью</string>
+    <string name="by_volonturieng">Волонтёрством</string>
+    <string name="news">Новости</string>
+    <string name="profile">Профиль</string>
+    <string name="take_photo">Сделать снимок</string>
+    <string name="choose_photo">Выбрать фото</string>
+    <string name="delete">Удалить</string>
 </resources>

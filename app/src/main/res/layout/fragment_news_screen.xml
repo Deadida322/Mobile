@@ -27,7 +27,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/officinasans"
-                    android:text="Новости"
+                    android:text="@string/news"
                     android:textColor="@color/white"
                     android:textFontWeight="600"
                     android:textSize="21sp"

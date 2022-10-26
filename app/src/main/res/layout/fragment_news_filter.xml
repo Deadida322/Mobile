@@ -42,7 +42,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/officinasans"
-                    android:text="Фильтр"
+                    android:text="@string/filter"
                     android:textColor="@color/white"
                     android:textFontWeight="600"
                     android:textSize="21sp"
@@ -64,7 +64,8 @@
                     app:layout_constraintBottom_toBottomOf="@+id/appbarTitle"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/appbarTitle"
-                    app:layout_scrollFlags="scroll|enterAlways" />
+                    app:layout_scrollFlags="scroll|enterAlways"
+                    tools:ignore="ImageContrastCheck" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </Toolbar>
 
@@ -87,7 +88,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="Выберите категорию помощи"
+                android:text="@string/choose_category"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -95,14 +96,14 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guideline5"
+                android:id="@+id/margin20"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 app:layout_constraintGuide_begin="20dp" />
 
             <View
-                android:id="@+id/SwitchBackGround"
+                android:id="@+id/switchBackground"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginTop="-20dp"
@@ -117,10 +118,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:text="Деньгами"
+                android:text="@string/by_money"
                 android:textColor="@color/black"
                 android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="@+id/guideline5"
+                app:layout_constraintStart_toStartOf="@+id/margin20"
                 app:layout_constraintTop_toBottomOf="@+id/filterCategoriesRecycler" />
 
             <androidx.appcompat.widget.SwitchCompat
@@ -143,7 +144,7 @@
                 android:layout_marginTop="18dp"
                 android:background="?android:attr/listDivider"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/guideline5"
+                app:layout_constraintStart_toEndOf="@+id/margin20"
                 app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
             <TextView
@@ -151,10 +152,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="18dp"
-                android:text="Вещами"
+                android:text="@string/by_stuff"
                 android:textColor="@color/black"
                 android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="@+id/guideline5"
+                app:layout_constraintStart_toStartOf="@+id/margin20"
                 app:layout_constraintTop_toBottomOf="@+id/divider3" />
 
             <View
@@ -164,7 +165,7 @@
                 android:layout_marginTop="17dp"
                 android:background="?android:attr/listDivider"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/guideline5"
+                app:layout_constraintStart_toStartOf="@+id/margin20"
                 app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
             <androidx.appcompat.widget.SwitchCompat
@@ -185,10 +186,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="18dp"
-                android:text="Проф. помощью"
+                android:text="@string/by_prof_help"
                 android:textColor="@color/black"
                 android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="@+id/guideline5"
+                app:layout_constraintStart_toStartOf="@+id/margin20"
                 app:layout_constraintTop_toBottomOf="@+id/divider5" />
 
             <View
@@ -198,7 +199,7 @@
                 android:layout_marginTop="18dp"
                 android:background="?android:attr/listDivider"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/guideline5"
+                app:layout_constraintStart_toStartOf="@+id/margin20"
                 app:layout_constraintTop_toBottomOf="@+id/textView18" />
 
             <androidx.appcompat.widget.SwitchCompat
@@ -219,10 +220,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="18dp"
-                android:text="Волонтёрством"
+                android:text="@string/by_volonturieng"
                 android:textColor="@color/black"
                 android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="@+id/guideline5"
+                app:layout_constraintStart_toStartOf="@+id/margin20"
                 app:layout_constraintTop_toBottomOf="@+id/divider6" />
 
             <View
@@ -232,7 +233,7 @@
                 android:layout_marginTop="17dp"
                 android:background="?android:attr/listDivider"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/guideline5"
+                app:layout_constraintStart_toStartOf="@+id/margin20"
                 app:layout_constraintTop_toBottomOf="@+id/textView19" />
 
             <androidx.appcompat.widget.SwitchCompat

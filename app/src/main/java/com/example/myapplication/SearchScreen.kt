@@ -25,8 +25,8 @@ class SearchScreen : Fragment() {
         binding.viewPager2.adapter = adapter
         TabLayoutMediator(tabLayout, binding.viewPager2) { tab, position ->
             when (position) {
-                0 -> tab.text = "По мероприятию"
-                1 -> tab.text = "По НКО"
+                0 -> tab.text = resources.getText(R.string.by_events)
+                1 -> tab.text = resources.getText(R.string.by_nko)
             }
         }.attach()
         return binding.root

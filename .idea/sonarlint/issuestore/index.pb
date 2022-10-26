@@ -14,3 +14,15 @@ P
 build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
 @
 app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
+r
+Bapp/src/main/java/com/example/myapplication/ContributorsAdapter.kt,f\1\f13480314b98c2b14e2b2cd7329371de3d786b04
+r
+Bapp/src/main/java/com/example/myapplication/EventSearchFragment.kt,9\c\9cd342662aafdbf3bc558dfe436aa39c3c6c48aa
+j
+:app/src/main/java/com/example/myapplication/HelpAdapter.kt,7\2\72301f6925fd246f83152f497ad026b6f2571307
+v
+Fapp/src/main/java/com/example/myapplication/FilterCategoriesAdapter.kt,c\a\ca0691bd94b504b9cf4b9d476dd3c3b4c17ac6d8
+i
+9app/src/main/java/com/example/myapplication/JSONReader.kt,d\3\d32ce55952794367b65445ec0285e691b3f0d511
+g
+7app/src/main/java/com/example/myapplication/NewsItem.kt,c\4\c400d2c844bf9cc36311a423e71a3211edefb495

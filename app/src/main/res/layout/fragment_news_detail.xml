@@ -46,7 +46,7 @@
                     android:fontFamily="@font/officinasans"
                     android:requiresFadingEdge="horizontal"
                     android:singleLine="true"
-                    android:text="Спонсоры отремонтируют что-то там"
+                    tools:text="Спонсоры отремонтируют что-то там"
                     android:textColor="@color/white"
                     android:textFontWeight="600"
                     android:textSize="21sp"
@@ -108,7 +108,7 @@
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/officinasans"
                 android:lineHeight="35sp"
-                android:text="Спонсоры отремонтируют школу-интернат"
+                tools:text="Спонсоры отремонтируют школу-интернат"
                 android:textColor="@color/blue_grey"
                 android:textSize="21sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -129,7 +129,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
-                android:text="Осталось 13 дней (21.09 – 20.10)"
+                tools:text="Осталось 13 дней (21.09 – 20.10)"
                 android:textColor="@color/grey"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView8"
@@ -143,7 +143,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="8dp"
                 android:lineHeight="20sp"
-                android:text="Благотворительный Фонд «Счастливый Мир»"
+                tools:text="Благотворительный Фонд «Счастливый Мир»"
                 android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView8" />
@@ -156,7 +156,8 @@
                 android:layout_marginTop="10dp"
                 android:src="@drawable/ic_nav"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/newsDetailOrganization" />
+                app:layout_constraintTop_toBottomOf="@+id/newsDetailOrganization"
+                android:contentDescription="nav" />
 
             <TextView
                 android:id="@+id/newsDetailAddress"
@@ -166,7 +167,7 @@
                 android:layout_marginTop="5dp"
                 android:width="230dp"
                 android:lineHeight="20sp"
-                android:text="Санкт-Петербург, Кирочная улица, д. 50А, каб. 208"
+                tools:text="Санкт-Петербург, Кирочная улица, д. 50А, каб. 208"
                 android:textColor="@color/black_70"
                 app:layout_constraintStart_toEndOf="@+id/imageView9"
                 app:layout_constraintTop_toTopOf="@+id/imageView9" />
@@ -179,7 +180,8 @@
                 android:layout_marginTop="10dp"
                 android:src="@drawable/ic_phone"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/newsDetailAddress" />
+                app:layout_constraintTop_toBottomOf="@+id/newsDetailAddress"
+                android:contentDescription="phone" />
 
             <TextView
                 android:id="@+id/textView23"
@@ -187,7 +189,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="5dp"
-                android:text="У вас есть вопросы?"
+                tools:text="У вас есть вопросы?"
                 app:layout_constraintStart_toEndOf="@+id/imageView16"
                 app:layout_constraintTop_toTopOf="@+id/imageView16" />
 
@@ -199,7 +201,7 @@
                 android:autoLink="email"
                 android:clickable="true"
                 android:linksClickable="true"
-                android:text="TextView"
+                tools:text="TextView"
                 android:textColorLink="@color/leaf"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="@+id/textView23"
@@ -262,7 +264,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
                 android:lineHeight="20sp"
-                android:text="lorem ipsum dolor sit amet"
+                tools:text="lorem ipsum dolor sit amet"
                 android:textColor="@color/black_70"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -299,7 +301,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="5dp"
-                android:text="TextView"
+                tools:text="TextView"
                 app:layout_constraintStart_toEndOf="@+id/imageView13"
                 app:layout_constraintTop_toTopOf="@+id/imageView13" />
 

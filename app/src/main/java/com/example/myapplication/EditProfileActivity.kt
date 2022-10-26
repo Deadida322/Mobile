@@ -1,7 +1,8 @@
 package com.example.myapplication
 
-import android.content.ActivityNotFoundException
+import android.app.Activity
 import android.content.Intent
+import android.content.Intent.ACTION_GET_CONTENT
 import android.graphics.Bitmap
 import android.graphics.ImageDecoder
 import android.net.Uri
@@ -10,6 +11,8 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
@@ -17,84 +20,77 @@ import com.example.myapplication.databinding.ActivityEditProfileBinding
 import java.io.IOException
 
 class EditProfileActivity : AppCompatActivity() {
-    lateinit var bindingClass: ActivityEditProfileBinding
-    private val REQUEST_TAKE_PHOTO = 1
-    private val SELECT_IMAGE_CODE = 2
+    lateinit var binding: ActivityEditProfileBinding
+    private lateinit var getCameraResult: ActivityResultLauncher<Intent>
+    private lateinit var getMediaResult: ActivityResultLauncher<Intent>
 
     private fun showDialog() {
-        val mDialogView = LayoutInflater.from(this).inflate(R.layout.image_menu, null)
-        val mBuilder = AlertDialog.Builder(this)
-            .setView(mDialogView)
-        val mAlertDialog = mBuilder.show()
-        mDialogView.findViewById<View>(R.id.menuTakePhoto).setOnClickListener {
+        val dialogView = LayoutInflater.from(this).inflate(R.layout.image_menu, null)
+        val builder = AlertDialog.Builder(this)
+            .setView(dialogView)
+        val alertDialog = builder.show()
+        dialogView.findViewById<View>(R.id.menuTakePhoto).setOnClickListener {
             takePhoto()
-            mAlertDialog.dismiss()
+            alertDialog.dismiss()
         }
-        mDialogView.findViewById<View>(R.id.menuDelte).setOnClickListener {
+        dialogView.findViewById<View>(R.id.menuDelte).setOnClickListener {
             deletePhoto()
-            mAlertDialog.dismiss()
+            alertDialog.dismiss()
         }
-        mDialogView.findViewById<View>(R.id.menuUpload).setOnClickListener {
+        dialogView.findViewById<View>(R.id.menuUpload).setOnClickListener {
             uploadPhoto()
-            mAlertDialog.dismiss()
+            alertDialog.dismiss()
         }
     }
 
     private fun takePhoto() {
-        val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-        try {
-            startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO)
-        } catch (e: ActivityNotFoundException) {
-            e.printStackTrace()
-        }
+        val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+        getCameraResult.launch(intent)
     }
 
     private fun uploadPhoto() {
-        val intent = Intent()
+        val intent = Intent(ACTION_GET_CONTENT)
         intent.type = "image/*"
-        intent.action = Intent.ACTION_GET_CONTENT
-        startActivityForResult(Intent.createChooser(intent, "Select image..."), SELECT_IMAGE_CODE)
+        getMediaResult.launch(intent)
     }
 
     private fun deletePhoto() {
-        bindingClass.imageProfile.setImageResource(R.drawable.ic_user_profile_icon)
+        binding.imageProfile.setImageResource(R.drawable.ic_user_profile_icon)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        bindingClass = ActivityEditProfileBinding.inflate(layoutInflater)
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-        bindingClass.changeImage.setOnClickListener {
-            showDialog()
-        }
-        setContentView(bindingClass.root)
-    }
+        binding = ActivityEditProfileBinding.inflate(layoutInflater)
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        if (requestCode == REQUEST_TAKE_PHOTO && resultCode == RESULT_OK) {
-            val thumbnailBitmap = data?.extras?.get("data") as Bitmap
-            bindingClass.imageProfile.setImageBitmap(thumbnailBitmap)
+        getCameraResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+            if (it.resultCode == Activity.RESULT_OK) {
+                val newImage = it.data?.extras?.get("data") as Bitmap
+                binding.imageProfile.setImageBitmap(newImage)
+            }
         }
-        if (requestCode == SELECT_IMAGE_CODE && resultCode == RESULT_OK) {
-            if (data != null) {
-                try {
-                    val bitmap = when {
-                        Build.VERSION.SDK_INT < 28 -> MediaStore.Images.Media.getBitmap(
-                            this.contentResolver,
-                            data.data
-                        )
-                        else -> {
-                            val source = ImageDecoder.createSource(this.contentResolver, data.data as Uri)
-                            ImageDecoder.decodeBitmap(source)
+        getMediaResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+            if (it.resultCode == RESULT_OK) {
+                if (it.data != null) {
+                    runCatching {
+                        val bitmap = when {
+                            Build.VERSION.SDK_INT < 28 -> MediaStore.Images.Media.getBitmap(
+                                this.contentResolver,
+                                it.data?.data
+                            )
+                            else -> {
+                                val source = ImageDecoder.createSource(this.contentResolver, it.data?.data as Uri)
+                                ImageDecoder.decodeBitmap(source)
+                            }
                         }
+                        binding.imageProfile.setImageBitmap(bitmap)
                     }
-                    bindingClass.imageProfile.setImageBitmap(bitmap)
-                } catch (e: IOException) {
-                    e.printStackTrace()
                 }
             }
         }
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        binding.changeImage.setOnClickListener {
+            showDialog()
+        }
+        setContentView(binding.root)
     }
 }

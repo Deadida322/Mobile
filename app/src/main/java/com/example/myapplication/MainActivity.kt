@@ -12,7 +12,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
         loadFragment(supportFragmentManager, HelpScreen(), R.id.fragmentContainer)
         binding.bottomMenu.selectedItemId = R.id.help
         binding.bottomMenu.setOnItemSelectedListener { it ->
