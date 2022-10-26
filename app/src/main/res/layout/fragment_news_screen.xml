@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/light_grey_two">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbar"
@@ -22,7 +23,7 @@
                 tools:context=".Profile">
 
                 <TextView
-                    android:id="@+id/textView4"
+                    android:id="@+id/appbarTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/officinasans"
@@ -45,9 +46,9 @@
                     android:backgroundTintMode="multiply"
                     android:contentDescription="@string/app_name"
                     android:src="@drawable/ic_filter"
-                    app:layout_constraintBottom_toBottomOf="@+id/textView4"
+                    app:layout_constraintBottom_toBottomOf="@+id/appbarTitle"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/textView4"
+                    app:layout_constraintTop_toTopOf="@+id/appbarTitle"
                     app:layout_scrollFlags="scroll|enterAlways" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </Toolbar>
@@ -68,6 +69,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="8dp"
+                android:layout_marginBottom="56dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

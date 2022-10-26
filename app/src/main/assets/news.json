@@ -1,51 +1,79 @@
 [
   {
     "id": 0,
+    "organization": "Благотворительный фонд Садака",
     "title": "Ехал грекаf",
     "address": "Санкт Петербург, Кировская улица, 3",
     "phoneList": ["89041935582", "88005553555"],
     "email": "1davidios1@gmail.com",
     "img": "@drawable/gallery2",
     "gallery":  [
-      "@drawable/gallery1.png",
-      "@drawable/gallery2.png",
-      "@drawable/gallery3.png"
+      "@drawable/gallery1",
+      "@drawable/gallery2",
+      "@drawable/gallery3"
     ],
     "description": " Добро по указу — не добро. Волки - это сухопутные акулы. Женщина — это неудавшийся мужчина. Деньги, как и молодость, не знают преград. Кто боится порки, тот все равно что выпорот.",
     "categories": ["childs", "elders"],
-    "started_at": 12302391238,
+    "started_at": 1699999999002,
     "contributors": [
-      "@drawable/gallery1.png",
-      "@drawable/gallery2.png",
-      "@drawable/gallery3.png",
-      "@drawable/profile_image1.png",
-      "@drawable/profile_image1.png",
-      "@drawable/profile_image2.png",
-      "@drawable/gallery3.png",
-      "@drawable/profile_image3.png"
-    ]
+      "@drawable/gallery1",
+      "@drawable/gallery2",
+      "@drawable/gallery3",
+      "@drawable/profile_image1",
+      "@drawable/profile_image1",
+      "@drawable/profile_image2",
+      "@drawable/gallery3",
+      "@drawable/profile_image3"
+    ],
+    "site": "https://vk.com"
   },
   {
     "id": 2,
     "title": "Через реку",
+    "organization": "Волга Спорт Арена",
+    "address": "Ульяновск, Северный венец, 6",
+    "phoneList": ["89041935582", "88005553555"],
+    "email": "1darvid2@gmail.com",
+    "img": "@drawable/gallery1",
+    "gallery":  [
+      "@drawable/gallery1",
+      "@drawable/gallery2",
+      "@drawable/gallery3"
+    ],
+    "description": "Когда-то и меня манила дорога приключений, пока мне не прострелили колено",
+    "categories": ["childs"],
+    "started_at": 1699999099002,
+    "contributors": [
+      "@drawable/profile_image1",
+      "@drawable/profile_image1",
+      "@drawable/profile_image2",
+      "@drawable/gallery3",
+      "@drawable/profile_image3"
+    ],
+    "site": "https://youtube.com"
+  },
+  {
+    "id": 3,
+    "title": "Видит грека",
+    "organization": "Кондитерский дом Восток",
     "address": "Ульяновск, Северный венец, 6",
     "phoneList": ["89041935582", "88005553555"],
     "email": "1davidios1@gmail.com",
-    "img": "@drawable/gallery1",
+    "img": "@drawable/gallery3",
     "gallery":  [
-      "@drawable/gallery1.png",
-      "@drawable/gallery2.png",
-      "@drawable/gallery3.png"
+      "@drawable/gallery1",
+      "@drawable/gallery3",
+      "@drawable/gallery2"
     ],
-    "description": "Добро по указу — не добро. Волки - это сухопутные акулы. Женщина — это неудавшийся мужчина. Деньги, как и молодость, не знают преград. Кто боится порки, тот все равно что выпорот.",
-    "categories": ["childs"],
-    "started_at": 189302391238,
+    "description": "Идут как-то к лесу два муравья",
+    "categories": ["childs", "events"],
+    "started_at": 1669999099002,
     "contributors": [
-      "@drawable/profile_image1.png",
-      "@drawable/profile_image1.png",
-      "@drawable/profile_image2.png",
-      "@drawable/gallery3.png",
-      "@drawable/profile_image3.png"
-    ]
+      "@drawable/profile_image2",
+      "@drawable/profile_image3",
+      "@drawable/profile_image1",
+      "@drawable/profile_image3"
+    ],
+    "site": "https://vk.com"
   }
 ]

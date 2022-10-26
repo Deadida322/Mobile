@@ -10,11 +10,11 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.HelpItem
 import com.example.myapplication.R
+import com.utils.LoadImg
 
-/** Класс адаптера для RecyclerView */
 class HelpAdapter(val context: Context) : RecyclerView.Adapter<HelpAdapter.ViewHolder>() {
 
-    private val todolist = mutableListOf<HelpItem>()
+    private val categories = mutableListOf<HelpItem>()
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val img: ImageView = itemView.findViewById(R.id.helpImages)
         val text: TextView = itemView.findViewById(R.id.helpText)
@@ -25,24 +25,20 @@ class HelpAdapter(val context: Context) : RecyclerView.Adapter<HelpAdapter.ViewH
         return ViewHolder(itemView)
     }
 
-    @SuppressLint("UseCompatLoadingForDrawables")
     override fun onBindViewHolder(holder: HelpAdapter.ViewHolder, position: Int) {
-        val tmpItem = todolist[position]
-        val id: Int = context.getResources().getIdentifier(tmpItem.img, "drawable", context.packageName)
-        val img = context.getResources().getDrawable(id, context.getApplicationContext().getTheme())
-
-        holder.img.background = img
+        val tmpItem = categories[position]
+        LoadImg(context, tmpItem.img, holder.img)
         holder.text.text = tmpItem.txt
     }
 
     override fun getItemCount(): Int {
-        return todolist.size
+        return categories.size
     }
 
     @SuppressLint("NotifyDataSetChanged")
     fun setInfo(tmpArr: ArrayList<HelpItem>) {
-        todolist.clear()
-        todolist.addAll(tmpArr)
+        categories.clear()
+        categories.addAll(tmpArr)
         notifyDataSetChanged()
     }
 }

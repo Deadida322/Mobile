@@ -17,19 +17,11 @@ class EventSearchFragment : Fragment() {
     lateinit var list: List<String>
     lateinit var recyclerView: RecyclerView
     lateinit var adapter: SearchItemAdapter
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         arguments?.takeIf { it.containsKey(ARG_PARAM) }?.apply {
             list = getStringArrayList(ARG_PARAM)!!
         }

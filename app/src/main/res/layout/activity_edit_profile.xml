@@ -21,7 +21,7 @@
                 tools:context=".Profile">
 
                 <TextView
-                    android:id="@+id/textView4"
+                    android:id="@+id/appbarTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/officinasans"
@@ -44,9 +44,9 @@
                     android:backgroundTintMode="multiply"
                     android:contentDescription="@string/app_name"
                     android:src="@drawable/ic_baseline_done_24"
-                    app:layout_constraintBottom_toBottomOf="@+id/textView4"
+                    app:layout_constraintBottom_toBottomOf="@+id/appbarTitle"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/textView4"
+                    app:layout_constraintTop_toTopOf="@+id/appbarTitle"
                     app:layout_scrollFlags="scroll|enterAlways" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </Toolbar>

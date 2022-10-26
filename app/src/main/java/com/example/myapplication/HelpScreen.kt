@@ -14,7 +14,7 @@ class HelpScreen : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentHelpScreenBinding.inflate(layoutInflater)
         return binding.root
     }

@@ -29,7 +29,6 @@ class FilterCategoriesAdapter(val context: Context, private val onItemClick: ((H
         }
     }
 
-    @SuppressLint("ResourceAsColor")
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FilterCategoriesAdapter.ViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.filter_categies_item, parent, false)
         return ViewHolder(itemView)

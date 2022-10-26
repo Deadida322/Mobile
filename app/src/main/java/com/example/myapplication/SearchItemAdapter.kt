@@ -8,7 +8,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
 
-/** Класс адаптера для RecyclerView */
 class SearchItemAdapter() : RecyclerView.Adapter<SearchItemAdapter.ViewHolder>() {
 
     private val list = mutableListOf<String>()

@@ -3,6 +3,9 @@ package com.example.myapplication
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.graphics.Bitmap
+import android.graphics.ImageDecoder
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.LayoutInflater
@@ -77,8 +80,17 @@ class EditProfileActivity : AppCompatActivity() {
         if (requestCode == SELECT_IMAGE_CODE && resultCode == RESULT_OK) {
             if (data != null) {
                 try {
-                    val bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, data.data)
-                    bindingClass.imageProfile!!.setImageBitmap(bitmap)
+                    val bitmap = when {
+                        Build.VERSION.SDK_INT < 28 -> MediaStore.Images.Media.getBitmap(
+                            this.contentResolver,
+                            data.data
+                        )
+                        else -> {
+                            val source = ImageDecoder.createSource(this.contentResolver, data.data as Uri)
+                            ImageDecoder.decodeBitmap(source)
+                        }
+                    }
+                    bindingClass.imageProfile.setImageBitmap(bitmap)
                 } catch (e: IOException) {
                     e.printStackTrace()
                 }

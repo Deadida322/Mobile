@@ -1,7 +1,6 @@
 package com.example.myapplication
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,36 +16,45 @@ class NewsScreen : Fragment() {
     lateinit var adapter: NewsAdapter
     lateinit var recyclerView: RecyclerView
     lateinit var list: ArrayList<NewsItem>
-    private var sortCategory: String = ""
-
+    lateinit var category: String
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        category = ""
+        arguments?.let {
+            category = it.getString("key").toString()
+        }
+    }
+    private fun onItemClick() = { item: NewsItem ->
+        val id = item.id
+        val bundle = Bundle()
+        bundle.putInt("id", id)
+        val fragment = NewsDetail()
+        fragment.setArguments(bundle)
+        loadFragment(fragment)
+    }
     private fun loadFragment(fragment: Fragment) {
         val fragmentManager = activity?.supportFragmentManager
         val fragmantTransaction = fragmentManager?.beginTransaction()
         fragmantTransaction?.add(R.id.fragmentContainer, fragment)
         fragmantTransaction?.commit()
     }
-    private fun filterNews(): ArrayList<NewsItem> {
-        Log.e("infoNews", sortCategory.toString())
-        if (sortCategory == "") return list
-        return list.filter {
-            it.categories.contains(sortCategory)
-        } as ArrayList
-    }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    private fun filterNews(): ArrayList<NewsItem> {
+        if (category == "") return list
+        return list.filter {
+            it.categories.contains(category)
+        } as ArrayList
     }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentNewsScreenBinding.inflate(inflater)
         recyclerView = binding.newsRecycler
-        adapter = NewsAdapter(requireContext())
+        adapter = NewsAdapter(requireContext(), onItemClick())
         list = JSONReader(requireContext(), "news.json", NewsItem::class.java).getList() as ArrayList<NewsItem>
-        sortCategory = getArguments()?.getString("key", "").toString()
         adapter.differ.submitList(filterNews())
         recyclerView.adapter = adapter
         val layoutManager = LinearLayoutManager(context)

@@ -2,32 +2,35 @@ package com.example.todoapp
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.NewsItem
 import com.example.myapplication.databinding.NewsItemBinding
+import com.utils.LoadImg
+import com.utils.toTime
 
-class NewsAdapter(val context: Context) : RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
+class NewsAdapter(val context: Context, private val onItemClick: ((NewsItem) -> Unit)?) : RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
     lateinit var binding: NewsItemBinding
-    private val news = mutableListOf<NewsItem>()
-    inner class ViewHolder() : RecyclerView.ViewHolder(binding.root) {
-        val img: ImageView = binding.newsImage
-        val title: TextView = binding.newsTitle
-        val description: TextView = binding.newsDescription
-        val date: TextView = binding.newsDate
 
+    inner class ViewHolder() : RecyclerView.ViewHolder(binding.root) {
         @SuppressLint("UseCompatLoadingForDrawables")
         fun setData(item: NewsItem) {
-            val id: Int = context.getResources().getIdentifier(item.img, "drawable", context.packageName)
-            val img = context.getResources().getDrawable(id, context.getApplicationContext().getTheme())
             binding.apply {
-                newsImage.background = img
+                LoadImg(context, item.img, newsImage)
                 newsTitle.text = item.title
+                newsDescription.text = item.description
+                Log.i("key", this.toString())
+
+                newsDate.text = item.started_at.toTime()
+            }
+        }
+        init {
+            itemView.setOnClickListener {
+                onItemClick?.invoke(differ.currentList[position])
             }
         }
     }
@@ -37,7 +40,6 @@ class NewsAdapter(val context: Context) : RecyclerView.Adapter<NewsAdapter.ViewH
         return ViewHolder()
     }
 
-    @SuppressLint("UseCompatLoadingForDrawables")
     override fun onBindViewHolder(holder: NewsAdapter.ViewHolder, position: Int) {
         holder.setData(differ.currentList[position])
         holder.setIsRecyclable(false)

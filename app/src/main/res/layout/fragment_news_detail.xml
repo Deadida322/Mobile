@@ -32,13 +32,13 @@
                     android:backgroundTintMode="multiply"
                     android:contentDescription="@string/app_name"
                     android:src="@drawable/ic_baseline_arrow_back_24"
-                    app:layout_constraintBottom_toBottomOf="@+id/textView4"
+                    app:layout_constraintBottom_toBottomOf="@+id/appbarTitle"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/textView4"
+                    app:layout_constraintTop_toTopOf="@+id/appbarTitle"
                     app:tint="@color/white" />
 
                 <TextView
-                    android:id="@+id/textView4"
+                    android:id="@+id/appbarTitle"
                     android:layout_width="240dp"
                     android:layout_height="wrap_content"
                     android:ellipsize="none"
@@ -64,10 +64,10 @@
                     android:background="?android:selectableItemBackground"
                     android:backgroundTintMode="multiply"
                     android:contentDescription="@string/app_name"
-                    android:src="@drawable/ic_baseline_done_24"
-                    app:layout_constraintBottom_toBottomOf="@+id/textView4"
+                    android:src="@drawable/ic_share"
+                    app:layout_constraintBottom_toBottomOf="@+id/appbarTitle"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/textView4"
+                    app:layout_constraintTop_toTopOf="@+id/appbarTitle"
                     app:layout_scrollFlags="scroll|enterAlways" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </Toolbar>
@@ -77,8 +77,10 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:clipToPadding="false"
         android:contentDescription="@string/app_name"
         android:padding="0dp"
+        android:paddingBottom="40dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -91,15 +93,15 @@
                 android:id="@+id/view"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                android:layout_marginBottom="-20dp"
+                android:layout_marginBottom="-10dp"
                 android:background="@color/white"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toBottomOf="@+id/newsDetailSite"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView11"
+                android:id="@+id/newsDetailTitle"
                 android:layout_width="365dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
@@ -120,10 +122,10 @@
                 android:layout_marginTop="10dp"
                 android:src="@drawable/ic_icon_calendar"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView11" />
+                app:layout_constraintTop_toBottomOf="@+id/newsDetailTitle" />
 
             <TextView
-                android:id="@+id/textView20"
+                android:id="@+id/newsDetailDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
@@ -135,7 +137,7 @@
                 app:layout_constraintTop_toTopOf="@+id/imageView8" />
 
             <TextView
-                android:id="@+id/textView21"
+                android:id="@+id/newsDetailOrganization"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
@@ -154,10 +156,10 @@
                 android:layout_marginTop="10dp"
                 android:src="@drawable/ic_nav"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView21" />
+                app:layout_constraintTop_toBottomOf="@+id/newsDetailOrganization" />
 
             <TextView
-                android:id="@+id/textView22"
+                android:id="@+id/newsDetailAddress"
                 android:layout_width="228dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="10dp"
@@ -177,46 +179,43 @@
                 android:layout_marginTop="10dp"
                 android:src="@drawable/ic_phone"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView22" />
-
-            <ListView
-                android:id="@+id/phoneList"
-                android:layout_width="215dp"
-                android:layout_height="53dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="5dp"
-                app:layout_constraintStart_toEndOf="@+id/imageView13"
-                app:layout_constraintTop_toTopOf="@+id/imageView13" />
+                app:layout_constraintTop_toBottomOf="@+id/newsDetailAddress" />
 
             <TextView
                 android:id="@+id/textView23"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:text="У вас есть вопросы?"
                 app:layout_constraintStart_toEndOf="@+id/imageView16"
-                app:layout_constraintTop_toBottomOf="@+id/phoneList" />
+                app:layout_constraintTop_toTopOf="@+id/imageView16" />
 
             <TextView
-                android:id="@+id/textView24"
+                android:id="@+id/newsDetailMail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:autoLink="email"
+                android:clickable="true"
+                android:linksClickable="true"
                 android:text="TextView"
+                android:textColorLink="@color/leaf"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="@+id/textView23"
                 app:layout_constraintStart_toEndOf="@+id/textView23"
-                app:layout_constraintTop_toTopOf="@+id/textView23" />
+                app:layout_constraintTop_toTopOf="@+id/textView23"
+                tools:ignore="TouchTargetSizeCheck" />
 
             <ImageView
-                android:id="@+id/imageView15"
+                android:id="@+id/newsDetailImg1"
                 android:layout_width="205dp"
                 android:layout_height="158dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
                 android:scaleType="centerCrop"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView24"
+                app:layout_constraintTop_toBottomOf="@+id/newsDetailMail"
                 tools:src="@tools:sample/backgrounds/scenic" />
 
             <ImageView
@@ -227,36 +226,36 @@
                 android:layout_marginTop="10dp"
                 android:src="@drawable/ic_mail"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/phoneList" />
+                app:layout_constraintTop_toBottomOf="@+id/newsDetailPhone1" />
 
             <ImageView
-                android:id="@+id/imageView17"
+                android:id="@+id/newsDetailImage2"
                 android:layout_width="0dp"
                 android:layout_height="74dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="20dp"
                 android:scaleType="centerCrop"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imageView15"
-                app:layout_constraintTop_toTopOf="@+id/imageView15"
+                app:layout_constraintStart_toEndOf="@+id/newsDetailImg1"
+                app:layout_constraintTop_toTopOf="@+id/newsDetailImg1"
                 tools:src="@tools:sample/backgrounds/scenic" />
 
             <ImageView
-                android:id="@+id/imageView18"
+                android:id="@+id/newsDetailImage3"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
                 android:scaleType="centerCrop"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView15"
+                app:layout_constraintBottom_toBottomOf="@+id/newsDetailImg1"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imageView15"
-                app:layout_constraintTop_toBottomOf="@+id/imageView17"
+                app:layout_constraintStart_toEndOf="@+id/newsDetailImg1"
+                app:layout_constraintTop_toBottomOf="@+id/newsDetailImage2"
                 tools:src="@tools:sample/backgrounds/scenic" />
 
             <TextView
-                android:id="@+id/textView25"
+                android:id="@+id/newsDetailDescription"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
@@ -267,19 +266,52 @@
                 android:textColor="@color/black_70"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView15" />
+                app:layout_constraintTop_toBottomOf="@+id/newsDetailImg1" />
 
             <TextView
-                android:id="@+id/textView26"
+                android:id="@+id/newsDetailSite"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
+                android:autoLink="web"
+                android:autoText="true"
                 android:lineHeight="20sp"
                 android:text="@string/go_to_site"
                 android:textColor="@color/leaf"
+                android:textColorLink="@color/leaf"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView25" />
+                app:layout_constraintTop_toBottomOf="@+id/newsDetailDescription"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/contributorsRecycler"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/newsDetailSite" />
+
+            <TextView
+                android:id="@+id/newsDetailPhone1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:text="TextView"
+                app:layout_constraintStart_toEndOf="@+id/imageView13"
+                app:layout_constraintTop_toTopOf="@+id/imageView13" />
+
+            <TextView
+                android:id="@+id/overflowContributors"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:textColor="@color/black__54"
+                app:layout_constraintBottom_toBottomOf="@+id/contributorsRecycler"
+                app:layout_constraintStart_toEndOf="@+id/contributorsRecycler"
+                app:layout_constraintTop_toTopOf="@+id/contributorsRecycler" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>

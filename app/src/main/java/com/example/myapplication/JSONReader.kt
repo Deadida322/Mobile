@@ -20,7 +20,7 @@ class JSONReader<T>(val context: Context, val fileName: String, val clazz: Class
         return jsonString
     }
 
-    fun getList(): ArrayList<HelpItem> {
+    fun getList(): ArrayList<T> {
         val jsonArray = getStringFromAsset()
         val typeOfT: Type? = TypeToken.getParameterized(MutableList::class.java, clazz).type
         return Gson().fromJson(jsonArray, typeOfT)
