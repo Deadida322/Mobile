@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.databinding.FragmentNewsFilterBinding
 import com.example.todoapp.FilterCategoriesAdapter
 import com.utils.loadFragment
-
+const val SORT_KEY = "key"
 class NewsFilter : Fragment() {
     lateinit var binding: FragmentNewsFilterBinding
     lateinit var recycler: RecyclerView
@@ -34,16 +34,14 @@ class NewsFilter : Fragment() {
         categoriesList = JSONReader(requireContext(), "categories.json", HelpItem::class.java).getList()
         adapter.setInfo(categoriesList)
         recycler.adapter = adapter
-        var manager = activity?.supportFragmentManager
+        val manager = activity?.supportFragmentManager
         binding.apply {
             filterButton.setOnClickListener {
                 val bundle = Bundle()
                 val fragment = NewsScreen()
-                bundle.putString("key", categorie)
-                fragment.setArguments(bundle)
-                backButton.setOnClickListener {
-                    loadFragment(manager, fragment, R.id.fragmentContainer)
-                }
+                bundle.putString(SORT_KEY, categorie)
+                fragment.arguments = bundle
+                loadFragment(manager, fragment, R.id.fragmentContainer)
             }
             backButton.setOnClickListener {
                 loadFragment(manager, NewsScreen(), R.id.fragmentContainer)

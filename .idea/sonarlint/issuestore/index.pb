@@ -5,9 +5,6 @@ a
 1app/src/main/res/drawable/ic_baseline_edit_24.xml,2\7\2701889fa172b91c3b1e269de92b0b4e7e83564b
 ?
 settings.gradle,0\5\05efc8b1657769a27696d478ded1e95f38737233
-:
-
-.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
 P
  app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
 <
@@ -20,8 +17,6 @@ r
 Bapp/src/main/java/com/example/myapplication/EventSearchFragment.kt,9\c\9cd342662aafdbf3bc558dfe436aa39c3c6c48aa
 j
 :app/src/main/java/com/example/myapplication/HelpAdapter.kt,7\2\72301f6925fd246f83152f497ad026b6f2571307
-v
-Fapp/src/main/java/com/example/myapplication/FilterCategoriesAdapter.kt,c\a\ca0691bd94b504b9cf4b9d476dd3c3b4c17ac6d8
 i
 9app/src/main/java/com/example/myapplication/JSONReader.kt,d\3\d32ce55952794367b65445ec0285e691b3f0d511
 g
