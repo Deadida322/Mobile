@@ -1,19 +1,23 @@
 package com.example.myapplication
 
+import android.annotation.SuppressLint
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 
-class SplashScreen : AppCompatActivity() {
+@SuppressLint("CustomSplashScreen")
+class gSplashScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        this.getSupportActionBar()?.hide();
         super.onCreate(savedInstanceState)
+        this.getSupportActionBar()?.hide()
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         setContentView(R.layout.activity_splash_screen)
 
         Handler(Looper.getMainLooper()).postDelayed({
-            val intent = Intent(this, Profile::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
         }, 100)
