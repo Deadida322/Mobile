@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">My Application</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="go_to_site"><u>Перейти на сайт организаии</u></string>
     <string name="upload">Выбрать фото</string>
@@ -30,4 +29,6 @@
     <string name="take_photo">Сделать снимок</string>
     <string name="choose_photo">Выбрать фото</string>
     <string name="delete">Удалить</string>
+    <string name="categories_file">categories.json</string>
+    <string name="news_file">news.json</string>
 </resources>

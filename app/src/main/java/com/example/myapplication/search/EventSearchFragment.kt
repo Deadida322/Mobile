@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.myapplication.search
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.databinding.FragmentEventSearchBinding
-import com.example.todoapp.SearchItemAdapter
 
 const val ARG_PARAM = ""
 

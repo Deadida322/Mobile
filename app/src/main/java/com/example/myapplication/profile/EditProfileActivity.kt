@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.myapplication.profile
 
 import android.app.Activity
 import android.content.Intent
@@ -16,8 +16,8 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import com.example.myapplication.R
 import com.example.myapplication.databinding.ActivityEditProfileBinding
-import java.io.IOException
 
 class EditProfileActivity : AppCompatActivity() {
     lateinit var binding: ActivityEditProfileBinding

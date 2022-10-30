@@ -1,10 +1,11 @@
-package com.example.myapplication
+package com.example.myapplication.search
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentSearchScreenBinding
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator

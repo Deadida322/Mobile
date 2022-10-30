@@ -1,4 +1,4 @@
-package com.example.todoapp
+package com.example.myapplication.profile
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -18,7 +18,7 @@ class ContributorsAdapter(val context: Context) : RecyclerView.Adapter<Contribut
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContributorsAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         binding = ContributorsItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder()
     }

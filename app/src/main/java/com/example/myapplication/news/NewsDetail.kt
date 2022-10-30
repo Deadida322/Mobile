@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.myapplication.news
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -7,10 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.utils.JSONReader
 import com.example.myapplication.databinding.FragmentNewsDetailBinding
-import com.example.todoapp.ContributorsAdapter
+import com.example.myapplication.profile.ContributorsAdapter
 import com.utils.LoadImg
-import com.utils.loadFragment
 import com.utils.toTime
 
 class NewsDetail : Fragment() {
@@ -34,11 +34,11 @@ class NewsDetail : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        var manager = activity?.supportFragmentManager
+        val manager = activity?.supportFragmentManager
         binding = FragmentNewsDetailBinding.inflate(inflater)
         binding.apply {
             backButton.setOnClickListener {
-                loadFragment(manager, NewsScreen(), R.id.fragmentContainer)
+                manager?.popBackStack()
             }
             appbarTitle.text = news.title
             newsDetailTitle.text = news.title

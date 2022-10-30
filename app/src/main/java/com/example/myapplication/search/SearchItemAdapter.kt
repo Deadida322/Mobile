@@ -1,4 +1,4 @@
-package com.example.todoapp
+package com.example.myapplication.search
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -15,12 +15,12 @@ class SearchItemAdapter() : RecyclerView.Adapter<SearchItemAdapter.ViewHolder>()
         val text: TextView = itemView.findViewById(R.id.searchItemText)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchItemAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.search_item, parent, false)
         return ViewHolder(itemView)
     }
 
-    override fun onBindViewHolder(holder: SearchItemAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val tmpItem = list[position]
         holder.text.text = tmpItem
     }

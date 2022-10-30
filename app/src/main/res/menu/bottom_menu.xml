@@ -6,25 +6,30 @@
         android:title="Новости"
         android:id="@+id/news"
         android:icon="@drawable/ic_news"
+        android:iconTint="@color/black_40"
         android:orderInCategory="1"/>
     <item
         android:title="Поиск"
         android:id="@+id/search"
+        android:iconTint="@color/black_40"
         android:icon="@drawable/ic_search"
         android:orderInCategory="2"/>
     <item
         android:title="Помочь"
         android:id="@+id/help"
         android:icon="@drawable/ic_help"
+        android:iconTint="@color/black_40"
         android:orderInCategory="3"/>
     <item
         android:title="История"
         android:id="@+id/history"
         android:icon="@drawable/ic_history"
+        android:iconTint="@color/black_40"
         android:orderInCategory="4" />
     <item
         android:title="Профиль"
         android:id="@+id/profile"
         android:icon="@drawable/ic_person"
+        android:iconTint="@color/black_40"
         android:orderInCategory="5" />
 </menu>

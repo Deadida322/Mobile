@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.utils
 
 import android.content.Context
 import com.google.gson.Gson

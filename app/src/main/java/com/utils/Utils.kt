@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import java.util.*
 
+@SuppressLint("SimpleDateFormat")
 fun Long.toTime(): String {
     val newdate = Date(this)
     val format = SimpleDateFormat("yyyy.MM.dd HH:mm")
@@ -25,4 +26,17 @@ fun loadFragment(frManager: FragmentManager?, fragment: Fragment, container: Int
     val fragmentTransaction = frManager?.beginTransaction()
     fragmentTransaction?.replace(container, fragment)
     fragmentTransaction?.commit()
+}
+
+fun addFragment(frManager: FragmentManager?, fragment: Fragment, container: Int) {
+    val fragmentTransaction = frManager?.beginTransaction()
+    fragmentTransaction?.addToBackStack(null)
+    fragmentTransaction?.add(container, fragment)
+    fragmentTransaction?.commit()
+}
+
+fun Fragment?.runOnUiThread(action: Runnable) {
+    this ?: return
+    if (!isAdded) return
+    activity?.runOnUiThread(action)
 }
