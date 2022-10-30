@@ -7,9 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.utils.JSONReader
+import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentNewsDetailBinding
 import com.example.myapplication.profile.ContributorsAdapter
+import com.utils.JSONReader
 import com.utils.LoadImg
 import com.utils.toTime
 
@@ -23,7 +24,7 @@ class NewsDetail : Fragment() {
         arguments?.let {
             newsId = it.getInt("id")
         }
-        news = JSONReader(requireContext(), "news.json", NewsItem::class.java)
+        news = JSONReader(requireContext(), resources.getString(R.string.news_file), NewsItem::class.java)
             .getList()
             .filter { it.id == newsId }[0]
     }

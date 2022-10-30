@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.databinding.FragmentEventSearchBinding
 
-const val ARG_PARAM = ""
+const val ARG_PARAM = "STRING_ARRAY"
 
 class EventSearchFragment : Fragment() {
     lateinit var binding: FragmentEventSearchBinding

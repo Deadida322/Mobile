@@ -10,24 +10,26 @@ import com.example.myapplication.news.NewsScreen
 import com.example.myapplication.profile.ProfileScreen
 import com.example.myapplication.search.SearchScreen
 import com.utils.loadFragment
-
+const val IS_LOADED_KEY = "IS_LOADED"
 class MainActivity : AppCompatActivity() {
+
     lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         binding = ActivityMainBinding.inflate(layoutInflater)
-        val isLoaded = savedInstanceState?.getBoolean("key")
+        val isLoaded = savedInstanceState?.getBoolean(IS_LOADED_KEY)
         if (isLoaded == null) {
             loadFragment(supportFragmentManager, HelpScreen(), R.id.fragmentContainer)
         }
         binding.bottomMenu.selectedItemId = R.id.help
-        binding.bottomMenu.setOnItemSelectedListener { it ->
+        binding.bottomMenu.setOnItemSelectedListener {
             selectFragment(it.itemId)
         }
-
         setContentView(binding.root)
     }
+
     override fun onBackPressed() {
         val count = getSupportFragmentManager().getBackStackEntryCount()
         if (count == 0) {
@@ -36,10 +38,10 @@ class MainActivity : AppCompatActivity() {
             getSupportFragmentManager().popBackStack()
         }
     }
+
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-
-        outState.putBoolean("key", true)
+        outState.putBoolean(IS_LOADED_KEY, true)
     }
     private fun selectFragment(item: Int): Boolean {
         supportFragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)

@@ -13,8 +13,6 @@ p
 @app/src/main/java/com/example/myapplication/SearchItemAdapter.kt,c\2\c273c33f7ab718a3ed957494c07bca354bd4544e
 k
 ;app/src/main/java/com/example/myapplication/SearchScreen.kt,d\9\d93413fbd548cca205c34c298937653bf52df6c9
-k
-;app/src/main/java/com/example/myapplication/SplashScreen.kt,6\4\644206f5a990da7511e55e60da6e3b9c5e188c61
 l
 <app/src/main/java/com/example/myapplication/SearchAdapter.kt,4\c\4c217d49966c3196b78ee7679fe56bbdf079c176
 :
