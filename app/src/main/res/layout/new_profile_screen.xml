@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@null">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/leaf"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/title_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/officinasans"
+                android:text="@string/profile"
+                android:textColor="@color/white"
+                android:textSize="21sp"
+                app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/toolbar"
+                tools:ignore="TextContrastCheck" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/edit_profile_button"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/ic_baseline_edit_24"
+                android:contentDescription="@null"
+                app:layout_constraintBottom_toBottomOf="@+id/title_text"
+                app:layout_constraintEnd_toEndOf="@+id/toolbar"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/title_text"
+                app:layout_constraintTop_toTopOf="@+id/title_text"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <!--Нехорошо хардкодить layout_height. Контейнейр должен подстраиваться под изображение, а не наоборот-->
+            <ImageView
+                android:id="@+id/profile_pic"
+                android:layout_width="0dp"
+                android:layout_height="220dp"
+                android:contentDescription="@null"
+                android:scaleType="centerCrop"
+                android:src="@drawable/image_man"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+            <!-- Все динамические поля (которые должны меняться в зависимости от данных),
+            вроде этого textView, нужно сеттить в коде. Сейчас пока захардкожу-->
+            <TextView
+                android:id="@+id/profile_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:text="Константинов Денис"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/profile_pic" />
+
+            <!--Занчения всех не меняющихся полей нужно выносить в ресурсы-->
+            <TextView
+                android:id="@+id/birthday_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Дата рождения"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@+id/profile_name"
+                app:layout_constraintTop_toBottomOf="@+id/profile_name" />
+
+            <TextView
+                android:id="@+id/sphere_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Сфера деятельности"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@+id/birthday_value"
+                app:layout_constraintTop_toBottomOf="@+id/birthday_value" />
+
+            <TextView
+                android:id="@+id/birthday_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="01 фераля 1980"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/birthday_title"
+                app:layout_constraintTop_toBottomOf="@+id/birthday_title" />
+
+            <TextView
+                android:id="@+id/sphere_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Хирургия, травмотология"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/sphere_title"
+                app:layout_constraintTop_toBottomOf="@+id/sphere_title" />
+
+            <TextView
+                android:id="@+id/push_notifications"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:text="Получать push-уведомления"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/sphere_value"
+                app:layout_constraintTop_toBottomOf="@+id/sphere_value" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/push_switch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="26dp"
+                android:checked="true"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                android:theme="@style/Switch"
+                app:layout_constraintBottom_toBottomOf="@+id/push_notifications"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/push_notifications" />
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="18dp"
+                android:background="?android:attr/listDivider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/push_notifications" />
+
+            <TextView
+                android:id="@+id/friends_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:text="Ваши друзья"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/friends_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/friends_title"
+                android:layout_marginHorizontal="20dp"
+                tools:itemCount="3"
+                tools:listitem="@layout/friend_item" />
+
+            <View
+                android:id="@+id/divider2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="20dp"
+                android:background="?android:attr/listDivider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/friends_recycler" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:backgroundTint="@color/turtle_green"
+                android:text="Выйти из аккаунта"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider2" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</FrameLayout>

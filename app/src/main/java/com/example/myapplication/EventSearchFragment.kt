@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.databinding.FragmentEventSearchBinding
-import com.example.todoapp.SearchItemAdapter
+import com.example.myapplication.adapters.SearchItemAdapter
 
 const val ARG_PARAM = ""
 

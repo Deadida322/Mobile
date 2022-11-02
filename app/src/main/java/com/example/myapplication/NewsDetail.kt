@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.databinding.FragmentNewsDetailBinding
-import com.example.todoapp.ContributorsAdapter
+import com.example.myapplication.adapters.ContributorsAdapter
 import com.utils.LoadImg
 import com.utils.loadFragment
 import com.utils.toTime
@@ -34,7 +34,7 @@ class NewsDetail : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        var manager = activity?.supportFragmentManager
+        val manager = activity?.supportFragmentManager
         binding = FragmentNewsDetailBinding.inflate(inflater)
         binding.apply {
             backButton.setOnClickListener {
@@ -58,7 +58,7 @@ class NewsDetail : Fragment() {
                 overflowContributors.text = "+ ${contributorsList.size - 5}"
                 contributorsList = ArrayList(contributorsList.subList(0, 5))
             }
-            adapter.setInfo(contributorsList as ArrayList<String>)
+            adapter.setInfo(contributorsList)
             contributorsRecycler.adapter = adapter
             contributorsRecycler.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         }

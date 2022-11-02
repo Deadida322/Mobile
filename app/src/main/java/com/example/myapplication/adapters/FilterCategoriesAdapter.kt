@@ -1,4 +1,4 @@
-package com.example.todoapp
+package com.example.myapplication.adapters
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -22,7 +22,7 @@ class FilterCategoriesAdapter(val context: Context, private val onItemClick: ((H
         init {
             itemView.setOnClickListener {
                 notifyItemChanged(selectedPos)
-                selectedPos = getLayoutPosition()
+                selectedPos = layoutPosition
                 notifyItemChanged(selectedPos)
                 onItemClick?.invoke(list[adapterPosition])
             }

@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.databinding.FragmentHelpBinding
-import com.example.todoapp.HelpAdapter
+import com.example.myapplication.adapters.HelpAdapter
 import com.google.android.flexbox.*
 import java.util.*
 

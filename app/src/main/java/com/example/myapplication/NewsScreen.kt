@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.databinding.FragmentNewsScreenBinding
-import com.example.todoapp.NewsAdapter
+import com.example.myapplication.adapters.NewsAdapter
 
 class NewsScreen : Fragment() {
 
@@ -54,7 +54,7 @@ class NewsScreen : Fragment() {
         binding = FragmentNewsScreenBinding.inflate(inflater)
         recyclerView = binding.newsRecycler
         adapter = NewsAdapter(requireContext(), onItemClick())
-        list = JSONReader(requireContext(), "news.json", NewsItem::class.java).getList() as ArrayList<NewsItem>
+        list = JSONReader(requireContext(), "news.json", NewsItem::class.java).getList()
         adapter.differ.submitList(filterNews())
         recyclerView.adapter = adapter
         val layoutManager = LinearLayoutManager(context)

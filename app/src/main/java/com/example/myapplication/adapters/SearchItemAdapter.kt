@@ -1,4 +1,4 @@
-package com.example.todoapp
+package com.example.myapplication.adapters
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
