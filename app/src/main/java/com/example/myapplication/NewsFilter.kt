@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.databinding.FragmentNewsFilterBinding
-import com.example.todoapp.FilterCategoriesAdapter
+import com.example.myapplication.adapters.FilterCategoriesAdapter
 import com.utils.loadFragment
 const val SORT_KEY = "key"
 class NewsFilter : Fragment() {

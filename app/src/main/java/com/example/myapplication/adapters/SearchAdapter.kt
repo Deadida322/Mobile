@@ -1,9 +1,11 @@
-package com.example.myapplication
+package com.example.myapplication.adapters
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.example.myapplication.ARG_PARAM
+import com.example.myapplication.EventSearchFragment
+import com.example.myapplication.SearchScreen
 
 class SearchAdapter(fragment: SearchScreen) : FragmentStateAdapter(fragment) {
     override fun getItemCount() = 2
