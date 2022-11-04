@@ -1,0 +1,14 @@
+[
+  {
+    "img": "@drawable/profile_image1",
+    "name": "Гаррош Адский Крик"
+  },
+  {
+    "img": "@drawable/profile_image2",
+    "name": "Вариан Рин"
+  },
+  {
+    "img": "@drawable/profile_image3",
+    "name": "Сильвана Ветрокрылая"
+  }
+]

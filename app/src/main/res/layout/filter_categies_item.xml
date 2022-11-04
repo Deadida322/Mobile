@@ -13,21 +13,22 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="6dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@drawable/events" />
 
     <TextView
         android:id="@+id/filterCategoriesTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        tools:text="placeholder"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/filterCategoriesLogo"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="placeholder" />
 
     <View
         android:id="@+id/divider8"
-        android:layout_width="409dp"
+        android:layout_width="0dp"
         android:layout_height="1dp"
         android:layout_marginTop="6dp"
         android:background="?android:attr/listDivider"

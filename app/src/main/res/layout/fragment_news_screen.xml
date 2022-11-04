@@ -6,54 +6,6 @@
     android:layout_height="match_parent"
     android:background="@color/light_grey_two">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <Toolbar
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:contentInsetStart="0dp"
-            app:layout_scrollFlags="scroll|enterAlways">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:context=".Profile">
-
-                <TextView
-                    android:id="@+id/appbarTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/officinasans"
-                    android:text="@string/news"
-                    android:textColor="@color/white"
-                    android:textFontWeight="600"
-                    android:textSize="21sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_scrollFlags="scroll|enterAlways" />
-
-                <ImageButton
-                    android:id="@+id/filterButton"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:layout_marginEnd="20dp"
-                    android:background="?android:selectableItemBackground"
-                    android:backgroundTintMode="multiply"
-                    android:contentDescription="@string/app_name"
-                    android:src="@drawable/ic_filter"
-                    app:layout_constraintBottom_toBottomOf="@+id/appbarTitle"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/appbarTitle"
-                    app:layout_scrollFlags="scroll|enterAlways" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </Toolbar>
-    </com.google.android.material.appbar.AppBarLayout>
-
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -64,15 +16,54 @@
             android:layout_height="match_parent"
             tools:context=".Profile">
 
+            <Toolbar
+                android:id="@+id/toolbar4"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/turtle_green"
+                android:contentInsetStart="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_scrollFlags="scroll|enterAlways" />
+
+            <ImageButton
+                android:id="@+id/filterButton"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?android:selectableItemBackground"
+                android:backgroundTintMode="multiply"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_filter"
+                app:layout_constraintBottom_toBottomOf="@+id/appbarTitle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/appbarTitle"
+                app:layout_scrollFlags="scroll|enterAlways" />
+
+            <TextView
+                android:id="@+id/appbarTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/officinasans"
+                android:text="@string/news"
+                android:textColor="@color/white"
+                android:textFontWeight="600"
+                android:textSize="21sp"
+                app:layout_constraintBottom_toBottomOf="@+id/toolbar4"
+                app:layout_constraintEnd_toEndOf="@+id/toolbar4"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/toolbar4"
+                app:layout_scrollFlags="scroll|enterAlways" />
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/newsRecycler"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar4"
                 tools:listitem="@layout/news_item" />
 
             <ProgressBar
@@ -88,13 +79,5 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>
-
-    <FrameLayout
-        android:id="@+id/filterFrame"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:focusable="true">
-
-    </FrameLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

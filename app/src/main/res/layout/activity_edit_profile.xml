@@ -4,54 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <Toolbar
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:layout_scrollFlags="scroll|enterAlways">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:context=".Profile">
-
-                <TextView
-                    android:id="@+id/appbarTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/officinasans"
-                    android:text="@string/edit"
-                    android:textColor="@color/white"
-                    android:textFontWeight="600"
-                    android:textSize="21sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_scrollFlags="scroll|enterAlways" />
-
-                <ImageButton
-                    android:id="@+id/filterButton"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:layout_marginEnd="20dp"
-                    android:background="?android:selectableItemBackground"
-                    android:backgroundTintMode="multiply"
-                    android:contentDescription="@string/app_name"
-                    android:src="@drawable/ic_baseline_done_24"
-                    app:layout_constraintBottom_toBottomOf="@+id/appbarTitle"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/appbarTitle"
-                    app:layout_scrollFlags="scroll|enterAlways" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </Toolbar>
-
-    </com.google.android.material.appbar.AppBarLayout>
-
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -64,6 +16,43 @@
             tools:context=".profile.EditProfileActivity">
 
 
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/turtle_green"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/title_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/officinasans"
+                android:text="@string/edit"
+                android:textColor="@color/white"
+                android:textSize="21sp"
+                app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/toolbar"
+                tools:ignore="TextContrastCheck" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/save_profile_button"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/ic_baseline_done_24"
+                android:contentDescription="@android:string/ok"
+                app:layout_constraintBottom_toBottomOf="@+id/title_text"
+                app:layout_constraintEnd_toEndOf="@+id/toolbar"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/title_text"
+                app:layout_constraintTop_toTopOf="@+id/title_text"
+                tools:ignore="TouchTargetSizeCheck" />
+
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/margin202"
                 android:layout_width="wrap_content"
@@ -75,15 +64,17 @@
                 android:id="@+id/changeImage"
                 android:layout_width="134dp"
                 android:layout_height="134dp"
+                android:layout_marginTop="16dp"
                 app:cardCornerRadius="500dp"
                 app:layout_constraintStart_toStartOf="@+id/margin202"
-                app:layout_constraintTop_toTopOf="@+id/guideline4">
+                app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
                 <ImageView
                     android:id="@+id/imageProfile"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/ic_user_profile_icon"
+                    android:contentDescription="@string/edit"
                     app:srcCompat="@drawable/ic_user_profile_icon" />
 
                 <TextView
@@ -123,13 +114,15 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
+                android:autofillHints=""
                 android:ems="10"
                 android:hint="@string/insert_surname"
                 android:inputType="textPersonName"
                 android:minHeight="48dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/changeImage"
-                app:layout_constraintTop_toBottomOf="@+id/yourSurname" />
+                app:layout_constraintTop_toBottomOf="@+id/yourSurname"
+                tools:ignore="TextContrastCheck" />
 
             <TextView
                 android:id="@+id/yourName"
@@ -195,36 +188,40 @@
                 android:minHeight="48dp"
                 app:layout_constraintBottom_toBottomOf="@+id/changeImage"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/changeImage" />
+                app:layout_constraintStart_toEndOf="@+id/changeImage"
+                tools:ignore="TextContrastCheck"
+                android:autofillHints="" />
 
             <EditText
                 android:id="@+id/editBirthday"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="20dp"
+                android:autofillHints=""
                 android:drawableEnd="@drawable/ic_icon_calendar"
-                android:drawableRight="@drawable/ic_icon_calendar"
                 android:ems="10"
-                android:inputType="textPersonName"
+                android:inputType="date"
                 android:minHeight="48dp"
                 android:text="@string/email_for_notifications"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/margin202"
-                app:layout_constraintTop_toBottomOf="@+id/birthday" />
+                app:layout_constraintTop_toBottomOf="@+id/birthday"
+                tools:ignore="DuplicateSpeakableTextCheck" />
 
             <EditText
                 android:id="@+id/editDate"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="20dp"
+                android:autofillHints=""
                 android:ems="10"
-                android:inputType="textPersonName"
+                android:inputType="text"
                 android:minHeight="48dp"
-                tools:text="01 февраля 1980"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/margin202"
-                app:layout_constraintTop_toBottomOf="@+id/fillActivityInfo" />
+                app:layout_constraintTop_toBottomOf="@+id/fillActivityInfo"
+                tools:text="01 февраля 1980" />
 
 
             <com.google.android.material.textfield.TextInputLayout
@@ -245,7 +242,8 @@
                     android:ems="10"
                     android:inputType="textPassword"
                     android:minHeight="48dp"
-                    tools:text="sometext" />
+                    tools:text="sometext"
+                    android:autofillHints="" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <EditText
@@ -259,7 +257,8 @@
                 tools:text="d.konstantinov@dk.com"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/margin202"
-                app:layout_constraintTop_toBottomOf="@+id/email" />
+                app:layout_constraintTop_toBottomOf="@+id/email"
+                android:autofillHints="" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

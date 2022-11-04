@@ -30,6 +30,7 @@
     <string name="choose_photo">Выбрать фото</string>
     <string name="delete">Удалить</string>
     <string name="categories_file">categories.json</string>
+    <string name="friends_file">friends.json</string>
     <string name="news_file">news.json</string>
     <string name="activity_sphere">Сфера деятельности</string>
     <string name="your_friends">Ваши друзья</string>

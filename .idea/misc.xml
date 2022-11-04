@@ -20,7 +20,7 @@
         <entry key="..\:/KotlinSimbirsoft/MyApplication/app/src/main/res/drawable/ic_search.xml" value="0.2985" />
         <entry key="..\:/KotlinSimbirsoft/MyApplication/app/src/main/res/drawable/row_selector.xml" value="0.196" />
         <entry key="..\:/KotlinSimbirsoft/MyApplication/app/src/main/res/font/officinasans.xml" value="0.2171875" />
-        <entry key="..\:/KotlinSimbirsoft/MyApplication/app/src/main/res/layout/activity_edit_profile.xml" value="0.5" />
+        <entry key="..\:/KotlinSimbirsoft/MyApplication/app/src/main/res/layout/activity_edit_profile.xml" value="0.48262032085561496" />
         <entry key="..\:/KotlinSimbirsoft/MyApplication/app/src/main/res/layout/activity_edit_profile2.xml" value="0.25052083333333336" />
         <entry key="..\:/KotlinSimbirsoft/MyApplication/app/src/main/res/layout/activity_help_category.xml" value="0.5" />
         <entry key="..\:/KotlinSimbirsoft/MyApplication/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
@@ -33,7 +33,7 @@
         <entry key="..\:/KotlinSimbirsoft/MyApplication/app/src/main/res/layout/fragment_blank.xml" value="0.20260416666666667" />
         <entry key="..\:/KotlinSimbirsoft/MyApplication/app/src/main/res/layout/fragment_event_search.xml" value="0.18802083333333333" />
         <entry key="..\:/KotlinSimbirsoft/MyApplication/app/src/main/res/layout/fragment_help.xml" value="0.33" />
-        <entry key="..\:/KotlinSimbirsoft/MyApplication/app/src/main/res/layout/fragment_help_screen.xml" value="0.20260416666666667" />
+        <entry key="..\:/KotlinSimbirsoft/MyApplication/app/src/main/res/layout/fragment_help_screen.xml" value="0.5" />
         <entry key="..\:/KotlinSimbirsoft/MyApplication/app/src/main/res/layout/fragment_item_list.xml" value="0.33" />
         <entry key="..\:/KotlinSimbirsoft/MyApplication/app/src/main/res/layout/fragment_news_detail.xml" value="0.4026915113871636" />
         <entry key="..\:/KotlinSimbirsoft/MyApplication/app/src/main/res/layout/fragment_news_filter.xml" value="0.47877984084880637" />
