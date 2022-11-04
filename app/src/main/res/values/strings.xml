@@ -31,4 +31,9 @@
     <string name="delete">Удалить</string>
     <string name="categories_file">categories.json</string>
     <string name="news_file">news.json</string>
+    <string name="activity_sphere">Сфера деятельности</string>
+    <string name="your_friends">Ваши друзья</string>
+    <string name="take_push">Получать push-уведомления</string>
+    <string name="leave_account">Выйти из аккаунта</string>
+    <string name="profile_image">profile image</string>
 </resources>
