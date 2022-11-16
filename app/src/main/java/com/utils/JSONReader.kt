@@ -5,7 +5,7 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.io.IOException
 import java.lang.reflect.Type
-import java.util.ArrayList
+import kotlin.collections.ArrayList
 
 class JSONReader<T>(val context: Context, val fileName: String, val clazz: Class<T>?) {
 

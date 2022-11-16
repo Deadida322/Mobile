@@ -10,8 +10,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
+import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentHelpBinding
 import com.google.android.flexbox.*
+import com.utils.JSONReader
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlin.collections.ArrayList
 const val HELP_ITEMS_KEY = "HELP_ITEMS_KEY"
 class HelpFragment : Fragment() {
@@ -30,7 +35,6 @@ class HelpFragment : Fragment() {
         val intentFilter = IntentFilter(
             ACTION_LOAD_CATEGORIES
         )
-        NewsIntentService.enqueueWork(requireContext(), intentNewsIntentService)
 
         intentFilter.addCategory(Intent.CATEGORY_DEFAULT)
         activity?.registerReceiver(mMyBroadcastReceiver, intentFilter)
@@ -54,7 +58,15 @@ class HelpFragment : Fragment() {
             }
         }
         if (list.size == 0) {
-            activity?.startService(intentNewsIntentService)
+            Observable
+                .just(JSONReader(requireContext(), resources.getString(R.string.categories_file), HelpItem::class.java).getList())
+                .subscribeOn(Schedulers.computation())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe {
+                    list = it
+                    binding.categoriesProgress.visibility = View.GONE
+                    adapter.setInfo(list)
+                }
         }
 
         return binding.root

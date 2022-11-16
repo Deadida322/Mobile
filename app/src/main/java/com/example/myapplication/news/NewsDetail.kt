@@ -2,6 +2,7 @@ package com.example.myapplication.news
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +14,8 @@ import com.example.myapplication.profile.ContributorsAdapter
 import com.utils.JSONReader
 import com.utils.LoadImg
 import com.utils.toTime
+import rx.Observable.just
+import kotlin.collections.ArrayList
 
 class NewsDetail : Fragment() {
     lateinit var binding: FragmentNewsDetailBinding
@@ -59,9 +62,15 @@ class NewsDetail : Fragment() {
                 overflowContributors.text = "+ ${contributorsList.size - 5}"
                 contributorsList = ArrayList(contributorsList.subList(0, 5))
             }
-            adapter.setInfo(contributorsList as ArrayList<String>)
+            adapter.setInfo(contributorsList)
             contributorsRecycler.adapter = adapter
             contributorsRecycler.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+            just(newsId.toString())
+                .map { it.toString() }
+                .subscribe {
+                    Log.i("Tag", it)
+                    NewsBus.publish(it.toString())
+                }
         }
         return binding.root
     }
