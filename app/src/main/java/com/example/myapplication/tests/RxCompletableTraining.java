@@ -32,12 +32,12 @@ public class RxCompletableTraining {
      * @return {@code Completable}
      */
     public Completable completeWhenTrue(Single<Boolean> checkSingle) {
-        // TODO: 15.11.2022 Не придумал как реализовать по-другому
-        if(checkSingle.blockingGet()){
-            return Completable.complete();
-        } else {
+        return checkSingle.flatMapCompletable(aBoolean -> {
+            if (Boolean.TRUE.equals(aBoolean)){
+                return Completable.complete();
+            }
             return Completable.error(new ExpectedException());
-        }
+        });
     }
 
     /* Вспомогательные методы */
