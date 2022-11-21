@@ -12,14 +12,10 @@ import com.example.myapplication.news.NewsItem
 import com.example.myapplication.news.NewsScreen
 import com.example.myapplication.profile.ProfileScreen
 import com.example.myapplication.search.SearchScreen
-import com.google.android.material.badge.BadgeDrawable
 import com.utils.JSONReader
 import com.utils.loadFragment
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
-import kotlinx.android.synthetic.main.activity_main.*
-import rx.Observable
-
 
 const val IS_LOADED_KEY = "IS_LOADED"
 
@@ -47,19 +43,15 @@ class MainActivity : AppCompatActivity() {
             .subscribe {
                 binding.bottomMenu.getOrCreateBadge(R.id.news).number = (newsCount - it.toInt())
             }
-        Observable.just(1.toString())
-            .subscribe {
-                NewsBus.publish(it.toString())
-            }
         setContentView(binding.root)
     }
 
     override fun onBackPressed() {
-        val count = getSupportFragmentManager().getBackStackEntryCount()
+        val count = supportFragmentManager.backStackEntryCount
         if (count == 0) {
             super.onBackPressed()
         } else {
-            getSupportFragmentManager().popBackStack()
+            supportFragmentManager.popBackStack()
         }
     }
 
@@ -87,7 +79,6 @@ class MainActivity : AppCompatActivity() {
                 loadFragment(supportFragmentManager, HelpScreen(), R.id.fragmentContainer)
                 return true
             }
-            else -> false
         }
         return true
     }

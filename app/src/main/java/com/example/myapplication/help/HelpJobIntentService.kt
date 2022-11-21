@@ -10,7 +10,13 @@ import com.utils.JSONReader
 const val ACTION_LOAD_CATEGORIES = "LOAD_CATEGORIES"
 const val EXTRA_KEY_OUT = "EXTRA_OUT"
 class NewsIntentService : JobIntentService() {
+
     var list = arrayListOf<HelpItem>()
+    companion object {
+        fun enqueueWork(context: Context, intent: Intent) {
+            enqueueWork(context, NewsIntentService::class.java, 1, intent)
+        }
+    }
     override fun onHandleWork(intent: Intent) {
         Thread.sleep(5000)
         list = JSONReader(applicationContext, resources.getString(R.string.categories_file), HelpItem::class.java).getList()
@@ -20,10 +26,5 @@ class NewsIntentService : JobIntentService() {
         responseIntent.addCategory(Intent.CATEGORY_DEFAULT)
         responseIntent.putExtra(EXTRA_KEY_OUT, list)
         sendBroadcast(responseIntent)
-    }
-    companion object {
-        fun enqueueWork(context: Context, intent: Intent) {
-            enqueueWork(context, NewsIntentService::class.java, 1, intent)
-        }
     }
 }

@@ -8,8 +8,7 @@ data class HelpItem(val img: String?, val txt: String?, val value: String?) : Pa
         parcel.readString(),
         parcel.readString(),
         parcel.readString()
-    ) {
-    }
+    )
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(img)

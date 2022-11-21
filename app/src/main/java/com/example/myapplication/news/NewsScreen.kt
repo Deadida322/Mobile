@@ -39,7 +39,7 @@ class NewsScreen : Fragment() {
     }
 
     private fun filterNews(): ArrayList<NewsItem> {
-        if (category == "") return list
+        if (category.isEmpty()) return list
         return list.filter {
             it.categories.contains(category)
         } as ArrayList
@@ -70,7 +70,7 @@ class NewsScreen : Fragment() {
             adapter.differ.submitList(filterNews())
         } else {
             Observable
-                .just(JSONReader(requireContext(), resources.getString(R.string.news_file), NewsItem::class.java).getList())
+                .fromCallable{JSONReader(requireContext(), resources.getString(R.string.news_file), NewsItem::class.java).getList()}
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe {

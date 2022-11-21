@@ -3,19 +3,15 @@ package com.utils
 import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import java.io.IOException
 import java.lang.reflect.Type
 import kotlin.collections.ArrayList
 
-class JSONReader<T>(val context: Context, val fileName: String, val clazz: Class<T>?) {
+class JSONReader<T>(private val context: Context, private val fileName: String, private val clazz: Class<T>?) {
 
     private fun getStringFromAsset(): String {
-        val jsonString: String
-        try {
+        var jsonString: String = ""
+        runCatching {
             jsonString = context.assets.open(fileName).bufferedReader().use { it.readText() }
-        } catch (ioException: IOException) {
-            ioException.printStackTrace()
-            return ""
         }
         return jsonString
     }
