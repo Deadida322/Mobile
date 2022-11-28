@@ -15,6 +15,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.jakewharton.rxbinding.widget.RxSearchView
 import com.utils.JSONReader
 import kotlinx.android.synthetic.main.fragment_search_screen.*
+import kotlinx.coroutines.*
 import java.util.concurrent.TimeUnit
 
 class SearchScreen : Fragment() {
@@ -52,11 +53,20 @@ class SearchScreen : Fragment() {
             .debounce(500, TimeUnit.MILLISECONDS)
             .map { it.toString() }
             .subscribe {
-                RxBus.publish(it.toString())
+                getScope(it)
             }
         super.onViewCreated(view, savedInstanceState)
     }
 
+    fun getScope(it: String) {
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                SearchFlow.outputFlow().emit(it)
+            } catch (e: Exception) {
+                Log.d("tag", e.toString())
+            }
+        }
+    }
     private fun searchFilter(query: String): ArrayList<NewsItem> {
         if (query == "") return events
         return events.filter {

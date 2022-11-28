@@ -11,8 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.databinding.FragmentEventSearchBinding
 import com.example.myapplication.news.NewsItem
 import com.utils.JSONReader
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.*
 
 const val ARG_PARAM = "STRING_ARRAY"
 
@@ -50,11 +49,18 @@ class EventSearchFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         if (isEvent) {
-            RxBus.listen().subscribeOn(Schedulers.computation())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe {
+            getScope()
+        }
+    }
+    private fun getScope() {
+        CoroutineScope(Dispatchers.Main).launch {
+            try {
+                SearchFlow.outputFlow().collect {
                     adapter.setInfo(searchByQuery(it))
                 }
+            } catch (e: Exception) {
+                Log.d("tag", e.toString())
+            }
         }
     }
     private fun getStringArray(lst: ArrayList<NewsItem>): ArrayList<String> {

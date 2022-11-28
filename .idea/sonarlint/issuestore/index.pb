@@ -28,8 +28,6 @@ P
  app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
 n
 >app/src/main/java/com/example/myapplication/help/HelpScreen.kt,d\c\dc3d451fa01827b0dfda4196ac33c581cc57b395
-r
-Bapp/src/main/java/com/example/myapplication/search/SearchScreen.kt,9\6\968d36120cd481b81a466681f9da1db206219084
 m
 =app/src/main/java/com/example/myapplication/tests/Entity.java,a\f\af0db450849aa250ccc0dee85e3c64e1fc5fd257
 x
@@ -66,3 +64,17 @@ u
 Eapp/src/test/java/com/example/myapplication/RxSingleTrainingTest.java,5\b\5b0243783e7ed095ab9bdd9834431a959c24e8d1
 {
 Kapp/src/test/java/com/example/myapplication/RxTransformingTrainingTest.java,4\a\4ad5ddfc81ea2d5e5f908e5157daa18635634300
+<
+build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
+p
+@app/src/main/java/com/example/myapplication/help/HelpFragment.kt,b\7\b76dac583751e57859e92b72b9eaee9424292b32
+l
+<app/src/main/java/com/example/myapplication/help/HelpItem.kt,c\9\c9b21c674b6d03953a75621612efdcda40745ab4
+x
+Happ/src/main/java/com/example/myapplication/help/HelpJobIntentService.kt,1\6\16b87e44cd6d6e539bb74fafe0ede82b290a497a
+{
+Kapp/src/main/java/com/example/myapplication/news/FilterCategoriesAdapter.kt,3\8\38a28acc19317818340b7de8c5a2234335c43b6a
+z
+Japp/src/main/java/com/example/myapplication/profile/EditProfileActivity.kt,4\0\403bc8250988bf509a7981194a1059ad90e890df
+@
+app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164

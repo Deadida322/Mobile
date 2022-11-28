@@ -1,7 +1,7 @@
 package com.example.myapplication
 
-import NewsBus
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.FragmentManager
@@ -14,8 +14,7 @@ import com.example.myapplication.profile.ProfileScreen
 import com.example.myapplication.search.SearchScreen
 import com.utils.JSONReader
 import com.utils.loadFragment
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.*
 
 const val IS_LOADED_KEY = "IS_LOADED"
 
@@ -37,13 +36,17 @@ class MainActivity : AppCompatActivity() {
             selectFragment(it.itemId)
         }
         newsCount = JSONReader(this, "news.json", NewsItem::class.java).getList().size
-
-        NewsBus.listen().subscribeOn(Schedulers.computation())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe {
-                binding.bottomMenu.getOrCreateBadge(R.id.news).number = (newsCount - it.toInt())
-            }
+        binding.bottomMenu.getOrCreateBadge(R.id.news).number = newsCount
+        getScope()
         setContentView(binding.root)
+    }
+
+    suspend fun getResult() {
+        coroutineScope {
+            NewsFlow.outputData().collect {
+                binding.bottomMenu.getOrCreateBadge(R.id.news).number = newsCount - it
+            }
+        }
     }
 
     override fun onBackPressed() {
@@ -52,6 +55,16 @@ class MainActivity : AppCompatActivity() {
             super.onBackPressed()
         } else {
             supportFragmentManager.popBackStack()
+        }
+    }
+
+    private fun getScope() {
+        CoroutineScope(Dispatchers.Main).launch {
+            try {
+                getResult()
+            } catch (e: Exception) {
+                Log.d("tag", e.toString())
+            }
         }
     }
 

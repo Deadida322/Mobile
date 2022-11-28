@@ -8,13 +8,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.myapplication.NewsFlow
 import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentNewsDetailBinding
 import com.example.myapplication.profile.ContributorsAdapter
 import com.utils.JSONReader
 import com.utils.LoadImg
 import com.utils.toTime
-import rx.Observable.just
+import kotlinx.coroutines.*
 import kotlin.collections.ArrayList
 
 class NewsDetail : Fragment() {
@@ -30,6 +31,19 @@ class NewsDetail : Fragment() {
         news = JSONReader(requireContext(), resources.getString(R.string.news_file), NewsItem::class.java)
             .getList()
             .filter { it.id == newsId }[0]
+    }
+
+    private fun getScope() {
+        CoroutineScope(Dispatchers.IO).launch {
+            if (!NewsFlow.readNews.contains(newsId)) {
+                NewsFlow.readNews.add(newsId)
+            }
+            try {
+                NewsFlow.outputData().emit(NewsFlow.readNews.size)
+            } catch (e: Exception) {
+                Log.d("tag", e.toString())
+            }
+        }
     }
 
     @SuppressLint("SetTextI18n")
@@ -65,12 +79,7 @@ class NewsDetail : Fragment() {
             adapter.setInfo(contributorsList)
             contributorsRecycler.adapter = adapter
             contributorsRecycler.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-            just(newsId.toString())
-                .map { it.toString() }
-                .subscribe {
-                    Log.i("Tag", it)
-                    NewsBus.publish(it.toString())
-                }
+            getScope()
         }
         return binding.root
     }
