@@ -30,8 +30,6 @@ j
 :app/src/main/java/com/example/myapplication/HelpAdapter.kt,7\2\72301f6925fd246f83152f497ad026b6f2571307
 j
 :app/src/main/java/com/example/myapplication/NewsAdapter.kt,0\c\0c9039f8283e8a77d271c7b419c528b3cbc192e6
-@
-app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
 v
 Fapp/src/main/java/com/example/myapplication/FilterCategoriesAdapter.kt,c\a\ca0691bd94b504b9cf4b9d476dd3c3b4c17ac6d8
 r
