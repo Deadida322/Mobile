@@ -75,5 +75,102 @@
       "@drawable/profile_image3"
     ],
     "site": "https://vk.com"
+  },
+  {
+    "id": 4,
+    "title": "Однажды ангелы встретили меня",
+    "organization": "Кондитерский дом Восток",
+    "address": "Ульяновск, Северный венец, 6",
+    "phoneList": ["89041935582", "88005553555"],
+    "email": "1davidios1@gmail.com",
+    "img": "@drawable/gallery3",
+    "gallery":  [
+      "@drawable/gallery1",
+      "@drawable/gallery3",
+      "@drawable/gallery2"
+    ],
+    "description": "Идут как-то к лесу два муравья",
+    "categories": ["childs", "events"],
+    "started_at": 1669999099002,
+    "contributors": [
+      "@drawable/profile_image2",
+      "@drawable/profile_image3",
+      "@drawable/profile_image1",
+      "@drawable/profile_image3"
+    ],
+    "site": "https://vk.com"
+  },
+  {
+    "id": 5,
+    "title": "И сказали, что из рая",
+    "organization": "Кондитерский дом Восток",
+    "address": "Ульяновск, Северный венец, 6",
+    "phoneList": ["89041935582", "88005553555"],
+    "email": "1davidios1@gmail.com",
+    "img": "@drawable/gallery3",
+    "gallery":  [
+      "@drawable/gallery1",
+      "@drawable/gallery3",
+      "@drawable/gallery2"
+    ],
+    "description": "Lorem ipsum dolor sit amet",
+    "categories": ["childs", "events"],
+    "started_at": 1669999099002,
+    "contributors": [
+      "@drawable/profile_image2",
+      "@drawable/profile_image3",
+      "@drawable/profile_image1",
+      "@drawable/profile_image3"
+    ],
+    "site": "https://vk.com"
+  }
+,
+  {
+    "id": 6,
+    "title": "Сбежал лучший ментор",
+    "organization": "Кондитерский дом Восток",
+    "address": "Ульяновск, Северный венец, 6",
+    "phoneList": ["89041935582", "88005553555"],
+    "email": "1davidios1@gmail.com",
+    "img": "@drawable/gallery3",
+    "gallery":  [
+      "@drawable/gallery1",
+      "@drawable/gallery3",
+      "@drawable/gallery2"
+    ],
+    "description": "Lorem ipsum dolor sit amet",
+    "categories": ["childs", "events"],
+    "started_at": 1669999099002,
+    "contributors": [
+      "@drawable/profile_image2",
+      "@drawable/profile_image3",
+      "@drawable/profile_image1",
+      "@drawable/profile_image3"
+    ],
+    "site": "https://vk.com"
+  },
+  {
+    "id": 7,
+    "title": "Но я тебя не выдал",
+    "organization": "Кондитерский дом Восток",
+    "address": "Ульяновск, Северный венец, 6",
+    "phoneList": ["89041935582", "88005553555"],
+    "email": "1davidios1@gmail.com",
+    "img": "@drawable/gallery3",
+    "gallery":  [
+      "@drawable/gallery1",
+      "@drawable/gallery3",
+      "@drawable/gallery2"
+    ],
+    "description": "Lorem ipsum dolor sit amet",
+    "categories": ["childs", "events"],
+    "started_at": 1669999099002,
+    "contributors": [
+      "@drawable/profile_image2",
+      "@drawable/profile_image3",
+      "@drawable/profile_image1",
+      "@drawable/profile_image3"
+    ],
+    "site": "https://vk.com"
   }
 ]

@@ -36,7 +36,7 @@ class FilterCategoriesAdapter(val context: Context, private val onItemClick: ((H
     @SuppressLint("UseCompatLoadingForDrawables")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val tmpItem = list[position]
-        holder.itemView.setSelected(selectedPos == position)
+        holder.itemView.isSelected = selectedPos == position
         val id: Int = context.resources.getIdentifier(tmpItem.img, "drawable", context.packageName)
         val img = context.resources.getDrawable(id, context.applicationContext.theme)
         holder.img.background = img

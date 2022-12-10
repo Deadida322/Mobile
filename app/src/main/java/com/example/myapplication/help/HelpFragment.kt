@@ -10,8 +10,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
+import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentHelpBinding
 import com.google.android.flexbox.*
+import com.utils.JSONReader
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlin.collections.ArrayList
 const val HELP_ITEMS_KEY = "HELP_ITEMS_KEY"
 class HelpFragment : Fragment() {
@@ -25,15 +30,11 @@ class HelpFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val intentNewsIntentService = Intent(activity, NewsIntentService::class.java)
-        val mMyBroadcastReceiver = MyBroadcastReceiver()
         val intentFilter = IntentFilter(
             ACTION_LOAD_CATEGORIES
         )
-        NewsIntentService.enqueueWork(requireContext(), intentNewsIntentService)
 
         intentFilter.addCategory(Intent.CATEGORY_DEFAULT)
-        activity?.registerReceiver(mMyBroadcastReceiver, intentFilter)
         binding = FragmentHelpBinding.inflate(inflater)
         recyclerView = binding.RecyclerViewFragment
         adapter = HelpAdapter(requireContext())
@@ -54,23 +55,19 @@ class HelpFragment : Fragment() {
             }
         }
         if (list.size == 0) {
-            activity?.startService(intentNewsIntentService)
+            Observable
+                .fromCallable{JSONReader(requireContext(), resources.getString(R.string.categories_file), HelpItem::class.java).getList()}
+                .subscribeOn(Schedulers.computation())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe {
+                    list = it
+                    binding.categoriesProgress.visibility = View.GONE
+                    adapter.setInfo(list)
+                }
         }
 
         return binding.root
     }
-    inner class MyBroadcastReceiver : BroadcastReceiver() {
-        override fun onReceive(context: Context?, intent: Intent) {
-            val result = intent
-                .getParcelableArrayListExtra<HelpItem>(EXTRA_KEY_OUT)
-            if (result != null) {
-                list = result
-                adapter.setInfo(result)
-            }
-            binding.categoriesProgress.visibility = View.GONE
-        }
-    }
-
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         if (list.size != 0) {

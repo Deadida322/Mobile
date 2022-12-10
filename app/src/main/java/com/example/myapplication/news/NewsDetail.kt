@@ -2,17 +2,21 @@ package com.example.myapplication.news
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.myapplication.NewsFlow
 import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentNewsDetailBinding
 import com.example.myapplication.profile.ContributorsAdapter
 import com.utils.JSONReader
 import com.utils.LoadImg
 import com.utils.toTime
+import kotlinx.coroutines.*
+import kotlin.collections.ArrayList
 
 class NewsDetail : Fragment() {
     lateinit var binding: FragmentNewsDetailBinding
@@ -27,6 +31,19 @@ class NewsDetail : Fragment() {
         news = JSONReader(requireContext(), resources.getString(R.string.news_file), NewsItem::class.java)
             .getList()
             .filter { it.id == newsId }[0]
+    }
+
+    private fun getScope() {
+        CoroutineScope(Dispatchers.IO).launch {
+            if (!NewsFlow.readNews.contains(newsId)) {
+                NewsFlow.readNews.add(newsId)
+            }
+            try {
+                NewsFlow.outputData().emit(NewsFlow.readNews.size)
+            } catch (e: Exception) {
+                Log.d("tag", e.toString())
+            }
+        }
     }
 
     @SuppressLint("SetTextI18n")
@@ -59,9 +76,10 @@ class NewsDetail : Fragment() {
                 overflowContributors.text = "+ ${contributorsList.size - 5}"
                 contributorsList = ArrayList(contributorsList.subList(0, 5))
             }
-            adapter.setInfo(contributorsList as ArrayList<String>)
+            adapter.setInfo(contributorsList)
             contributorsRecycler.adapter = adapter
             contributorsRecycler.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+            getScope()
         }
         return binding.root
     }

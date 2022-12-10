@@ -6,7 +6,6 @@ import android.content.Intent.ACTION_GET_CONTENT
 import android.graphics.Bitmap
 import android.graphics.ImageDecoder
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.LayoutInflater
@@ -70,20 +69,18 @@ class EditProfileActivity : AppCompatActivity() {
         }
         getMediaResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
             if (it.resultCode == RESULT_OK) {
-                if (it.data != null) {
-                    runCatching {
-                        val bitmap = when {
-                            Build.VERSION.SDK_INT < 28 -> MediaStore.Images.Media.getBitmap(
-                                this.contentResolver,
-                                it.data?.data
-                            )
-                            else -> {
-                                val source = ImageDecoder.createSource(this.contentResolver, it.data?.data as Uri)
-                                ImageDecoder.decodeBitmap(source)
-                            }
+                runCatching {
+                    val bitmap = when {
+                        false -> MediaStore.Images.Media.getBitmap(
+                            this.contentResolver,
+                            it.data?.data
+                        )
+                        else -> {
+                            val source = ImageDecoder.createSource(this.contentResolver, it.data?.data as Uri)
+                            ImageDecoder.decodeBitmap(source)
                         }
-                        binding.imageProfile.setImageBitmap(bitmap)
                     }
+                    binding.imageProfile.setImageBitmap(bitmap)
                 }
             }
         }
