@@ -4,6 +4,8 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 
+const val EVENTS_KEY = "EVENTS"
+
 class SearchAdapter(fragment: SearchScreen) : FragmentStateAdapter(fragment) {
     override fun getItemCount() = 2
 
@@ -24,9 +26,16 @@ class SearchAdapter(fragment: SearchScreen) : FragmentStateAdapter(fragment) {
 
     override fun createFragment(position: Int): Fragment {
         val fragment = EventSearchFragment()
-        fragment.arguments = Bundle().apply {
-            putStringArrayList(ARG_PARAM, ArrayList(getRandomList((4..8).random())))
+        if (position == 0) {
+            fragment.arguments = Bundle().apply {
+                putString(EVENTS_KEY, EVENTS_KEY)
+            }
+        } else {
+            fragment.arguments = Bundle().apply {
+                putStringArrayList(ARG_PARAM, ArrayList(getRandomList((4..8).random())))
+            }
         }
+
         return fragment
     }
 }

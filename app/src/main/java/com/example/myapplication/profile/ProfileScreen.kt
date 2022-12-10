@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentProfileScreenBinding
 import com.utils.JSONReader
-import kotlinx.android.synthetic.main.news_item.*
 
 class ProfileScreen : Fragment() {
     lateinit var binding: FragmentProfileScreenBinding

@@ -32,8 +32,7 @@ data class NewsItem(
         parcel.readString(),
         parcel.createStringArrayList() as ArrayList<String>,
         parcel.createStringArrayList() as ArrayList<String>
-    ) {
-    }
+    )
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeInt(id)
