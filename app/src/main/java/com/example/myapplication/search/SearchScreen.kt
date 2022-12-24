@@ -1,6 +1,5 @@
 package com.example.myapplication.search
 
-import RxBus
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -14,8 +13,7 @@ import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.jakewharton.rxbinding.widget.RxSearchView
 import com.utils.JSONReader
-import kotlinx.android.synthetic.main.fragment_search_screen.*
-import kotlinx.coroutines.*
+import kotlinx.coroutines.* // ktlint-disable no-wildcard-imports
 import java.util.concurrent.TimeUnit
 
 class SearchScreen : Fragment() {
@@ -49,7 +47,7 @@ class SearchScreen : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        RxSearchView.queryTextChanges(searcher)
+        RxSearchView.queryTextChanges(binding.searcher)
             .debounce(500, TimeUnit.MILLISECONDS)
             .map { it.toString() }
             .subscribe {

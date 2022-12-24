@@ -1,5 +1,6 @@
 package com.example.myapplication.news
 import android.os.Bundle
+import android.os.Parcelable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentNewsScreenBinding
+import com.example.myapplication.retrofit.Common
 import com.utils.JSONReader
 import com.utils.addFragment
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -17,11 +19,11 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 const val NEWS_LIST = "NEWS_LIST"
 class NewsScreen : Fragment() {
 
-    lateinit var binding: FragmentNewsScreenBinding
-    lateinit var adapter: NewsAdapter
-    lateinit var recyclerView: RecyclerView
-    lateinit var list: ArrayList<NewsItem>
-    lateinit var category: String
+    private lateinit var binding: FragmentNewsScreenBinding
+    private lateinit var adapter: NewsAdapter
+    private lateinit var recyclerView: RecyclerView
+    private var list: List<NewsItem> = emptyList()
+    private var category: String = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         category = ""
@@ -38,13 +40,23 @@ class NewsScreen : Fragment() {
         addFragment(activity?.supportFragmentManager, fragment, R.id.fragmentContainer)
     }
 
-    private fun filterNews(): ArrayList<NewsItem> {
+    private fun filterNews(): List<NewsItem> {
         if (category.isEmpty()) return list
         return list.filter {
             it.categories.contains(category)
-        } as ArrayList
+        }
     }
-
+    private fun getObservableNews() {
+        Observable
+            .fromCallable { JSONReader(requireContext(), resources.getString(R.string.news_file), NewsItem::class.java).getList() }
+            .subscribeOn(Schedulers.newThread())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe {
+                list = it
+                binding.newsProgress.visibility = View.GONE
+                adapter.differ.submitList(filterNews())
+            }
+    }
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -65,19 +77,21 @@ class NewsScreen : Fragment() {
         }
 
         if (savedInstanceState != null) {
-            list = savedInstanceState.getParcelableArrayList<NewsItem>(NEWS_LIST) as ArrayList<NewsItem>
+            list = savedInstanceState.getParcelableArrayList<NewsItem>(NEWS_LIST) as List<NewsItem>
             binding.newsProgress.visibility = View.GONE
             adapter.differ.submitList(filterNews())
         } else {
-            Observable
-                .fromCallable{JSONReader(requireContext(), resources.getString(R.string.news_file), NewsItem::class.java).getList()}
-                .subscribeOn(Schedulers.newThread())
+            Common.retrofitServices.getNewsList()
+                .subscribeOn(Schedulers.computation())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe {
-                    list = it
-                    binding.newsProgress.visibility = View.GONE
-                    adapter.differ.submitList(filterNews())
-                }
+                .subscribe(
+                    { it -> list = it },
+                    {
+                        list = JSONReader(requireContext(), resources.getString(R.string.news_file), NewsItem::class.java).getList()
+                        binding.newsProgress.visibility = View.GONE
+                        adapter.differ.submitList(filterNews())
+                    }
+                )
         }
 
         return binding.root
@@ -85,6 +99,6 @@ class NewsScreen : Fragment() {
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putParcelableArrayList(NEWS_LIST, list)
+        outState.putParcelableArrayList(NEWS_LIST, list as java.util.ArrayList<out Parcelable>)
     }
 }
