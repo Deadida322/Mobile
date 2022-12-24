@@ -11,7 +11,6 @@ import com.example.myapplication.databinding.FragmentAuthScreenBinding
 import com.example.myapplication.help.HelpScreen
 import com.jakewharton.rxbinding.widget.RxTextView
 import com.utils.loadFragment
-import kotlinx.android.synthetic.main.fragment_auth_screen.*
 import rx.Observable
 import rx.Observer
 import rx.Subscription
@@ -48,8 +47,8 @@ class AuthScreen : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        emailInputObservable = RxTextView.textChanges(auth_mail)
-        passwordInputObservable = RxTextView.textChanges(auth_password)
+        emailInputObservable = RxTextView.textChanges(binding.authMail)
+        passwordInputObservable = RxTextView.textChanges(binding.authPassword)
         combineEvent()
     }
 
